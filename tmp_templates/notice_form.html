@@ -110,60 +110,23 @@
     <section id="content">
       <div class="row">
         <div class="container">
-          <div class="col s12">
-          </div>
-
-          <div class="col s12">
-            <table class="striped">
-              <thead>
-                <tr>
-                    <th>제목</th>
-                    <th class="right">게시일</th>
-                </tr>
-              </thead>
-
-              <tbody>
-                <tr>
-                    <td>
-                      <a href="notice_show.html">
-                      Lorem Ipsum is simply dummy text Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                      </a>
-                    </td>
-                  <td class="right">2020.05.12.</td>
-                </tr>
-                <tr>
-                  <td>
-                    <a href="notice_show.html">
-                    Lorem Ipsum is simply dummy text Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                    </a>
-                  </td>
-                  <td class="right">2020.05.12.</td>
-                </tr>
-                <tr>
-                  <td>
-                    <a href="notice_show.html">
-                    Lorem Ipsum is simply dummy text Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                    </a>
-                  </td>
-                  <td class="right">2020.05.12.</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
-          <div class="col s12" style="margin-top:15px;">
-            <a href="notice_form.html" class="btn dgist-blue-mid">새로운 공지 작성하기</a>
-          </div>
-
+          <form class="col s12">
+            <div class="row">
+              <h4>공지 작성하기</h4>
+              <div class="input-field col s12">
+                <input id="title" type="text">
+                <label for="title">제목</label>
+              </div>
+              <div class="input-field col s12">
+                <textarea id="textarea1" class="materialize-textarea"></textarea>
+                <label for="textarea1">본문</label>
+              </div>
+              <div class="input-field col s12">
+                <a class="dgist-blue-mid waves-effect waves-light btn">제출하기</a>
+              </div>
+            </div>
+          </form>
         </div>
-
-        <div class="row">
-          <div class="container">
-
-          </div>
-
-        </div>
-
       </div>
     </section>
 
