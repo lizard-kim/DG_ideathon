@@ -1,18 +1,41 @@
 from django.shortcuts import render, redirect
 from django.contrib import auth
-from .models import Profile, Idea
+from django.contrib.auth.models import User
+from .models import Profile, Idea, Notice
 
 def main(request):
     return render(request, 'main.html')
 
 def notice(request):
-    return render(request, 'notice.html')
+    if(request.user.username):
+        username = User.objects.get(username=request.user.username)
+        login_user = Profile.objects.filter(email=username)
+        if(login_user):
+            login_user.get()
+        return render(request, 'notice.html',{
+            'login_user':login_user,
+        })
+    else:
+        return render(request, 'notice.html',{
+            
+        })
 
 def about(request):
     return render(request, 'about.html')
 
 def notice_form(request):
-    return render(request, 'notice_form.html')
+    if request.method == 'POST':
+        title = request.POST['title']
+        contents = request.POST['contents']
+
+        newnotice = Notice.objects.create(
+            title = title,
+            contents = contents,
+        )
+        return redirect('../')
+
+    else:
+        return render(request, 'notice_form.html')
 
 def notice_show(request):
     return render(request, 'notice_show.html')
@@ -39,3 +62,9 @@ def sign_in(request):
             return render(request, 'sign_in.html', {'error': 'email or password is incorrect.'})
     else:
         return render(request, 'sign_in.html')
+
+def sign_out(request):
+    if request.method == 'POST':
+        auth.logout(request)
+        return redirect('../')
+    return render(request, 'main.html')

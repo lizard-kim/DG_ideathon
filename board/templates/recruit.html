@@ -48,7 +48,7 @@
     </style>
 
     <header class="hide-on-small-only dgist-blue-dark" style="height: 128px;">
-      <a href="main"><h2 class="center white-text logo">2020 대구 경북 아이디어톤</h2></a>
+      <a href="{% url 'main'%}"><h2 class="center white-text logo">2020 대구 경북 아이디어톤</h2></a>
     </header>
     <style>
 
@@ -63,10 +63,10 @@
 
               <ul id="nav-mobile" class="hide-on-small-only brand-logo center col s12">
                 <li style="display: inline; float:none;">
-                  <a class="page-link white-text" href="notice" style="display: inline-block;">공지사항</a>
+                  <a class="page-link white-text" href="{% url 'notice'%}" style="display: inline-block;">공지사항</a>
                 </li>
-                <li class="active" style="display: inline; float:none;">
-                  <a class="page-link white-text" href="recruit" style="display: inline-block;">팀빌딩</a>
+                <li style="display: inline; float:none;">
+                  <a class="page-link white-text" href="{% url 'recruit'%}" style="display: inline-block;">팀빌딩</a>
                 </li>
                 <li style="display: inline; float:none;">
                   <a class="page-link white-text" href="" style="display: inline-block;"  onclick="javascript:alert('14일 오픈 예정입니다.')">교육자료</a>
