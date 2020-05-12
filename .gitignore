@@ -1,0 +1,11 @@
+##Django##
+*.log
+*.pot
+*.pyc
+__pycache__/
+/static
+local_settings.py
+db.sqlite3
+media
+myvenv
+.DS_Store
