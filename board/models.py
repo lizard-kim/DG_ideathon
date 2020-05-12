@@ -1,7 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-
 class Idea(models.Model):
     title = models.CharField(
         max_length=50,
@@ -62,3 +61,19 @@ class Profile(models.Model):
 
     def __str__(self):
         return self.name
+
+class Notice(models.Model):
+    title = models.CharField(
+        max_length=50,
+    )
+    date = models.DateField(
+        auto_now=True, 
+        auto_now_add=False
+    )
+    contents = models.TextField(
+        max_length=500,
+        blank=True
+    )
+
+    def __str__(self):
+        return self.title
