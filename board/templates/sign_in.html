@@ -47,26 +47,27 @@
           <div class="card" style="height: 60vh; margin-top:20vh;">
             <div class="card-content">
               <div class="row">
-                <form class="col s12">
+                <form class="col s12" method="POST" action="{% url 'sign_in'%}">
+                  {% csrf_token %}
                   <h2 class="logo hide-on-small-only">2020 대구 경북 아이디어톤</h2>
                   <h5 class="logo hide-on-med-and-up center" style="font-size: 1.8rem;">2020 대구 경북 아이디어톤</h5>
                   <p class="hide-on-small-only">아이디어톤 진행 플랫폼은 사전 신청을 통해 발급된 계정을 통해 이용하실 수 있습니다.</p>
                   <a href="http://naver.me/F9nTeRBX">지원 링크</a>
                   <div class="row">
                     <div class="input-field col s12">
-                      <input id="email" type="email" class="validate">
+                      <input name="email" id="email" type="email" class="validate" value="">
                       <label for="email">이메일</label>
                     </div>
                   </div>
                   <div class="row">
                     <div class="input-field col s12">
-                      <input id="password" type="password" class="validate">
+                      <input name="password" id="password" type="password" class="validate" value="">
                       <label for="password">비밀번호</label>
                     </div>
                   </div>
                   <div class="row">
                     <div class="input-field col s12">
-                      <a class="dgist-blue-mid waves-effect waves-light btn">로그인</a>
+                      <button class="dgist-blue-mid waves-effect waves-light btn" type="submit">로그인</button>
                     </div>
                   </div>
                 </form>
