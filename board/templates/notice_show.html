@@ -29,6 +29,15 @@
       .dgist-blue-mid {
         background-color: #002991 !important;
       }
+      .logout{
+        background-color: #001752 !important;
+        border: none;
+        color: white;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 14px;
+      }
     </style>
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
@@ -55,38 +64,7 @@
     </style>
 
     <!-- Navbar -->
-    <nav class="navbar navbar-solid-transition z-depth-0 dgist-blue-dark">
-      <div class="nav-wrapper">
-        <a href="main" class="brand-logo white-text logo hide-on-med-and-up" style="font-size:1.2rem;">2020 대구 경북 아이디어톤</a>
-        <div class="container">
-          <div class="row center" style="margin:0px;">
-
-              <ul id="nav-mobile" class="hide-on-small-only brand-logo center col s12">
-                <li style="display: inline; float:none;">
-                  <a class="page-link white-text" href="notice" style="display: inline-block;">공지사항</a>
-                </li>
-                <li style="display: inline; float:none;">
-                  <a class="page-link white-text" href="recruit" style="display: inline-block;">팀빌딩</a>
-                </li>
-                <li style="display: inline; float:none;">
-                  <a class="page-link white-text" href="" style="display: inline-block;"  onclick="javascript:alert('14일 오픈 예정입니다.')">교육자료</a>
-                </li>
-                <li style="display: inline; float:none;">
-                  <a class="page-link white-text" href="" style="display: inline-block;"  onclick="javascript:alert('19일 오픈 예정입니다.')">과제물</a>
-                </li>
-                <li style="display: inline; float:none;">
-                <a class="page-link white-text" href="" style="display: inline-block;"  onclick="javascript:alert('14일 오픈 예정입니다.')">QnA</a>
-                </li>
-              </ul>
-
-            <a href="#" data-target="slide-out" class="sidenav-trigger button-collapse left hide-on-med-and-up"><i class="material-icons white-text">menu</i></a>
-
-          </div>
-
-        </div>
-
-      </div>
-    </nav>
+    {% include 'nav.html' %}
 
 
     <ul id="slide-out" class="sidenav dgist-blue-mid">
@@ -113,6 +91,13 @@
           <div class="col s12">
             <h4>{{notice.title}}</h4>
             <p class="grey-text">2020.05.12.</p>
+            {% if user.is_authenticated %}
+            {% if login_user.auth == admin %}
+            <form method="POST" action="{% url 'notice_delete' notice.id %}">
+              {% csrf_token %}<button type="submit"> delete </button>
+            </form>
+            {% endif %}
+            {% endif %}
             <div class="divider"></div>
             <p>
               {{notice.contents}}

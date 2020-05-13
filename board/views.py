@@ -41,9 +41,25 @@ def notice_form(request):
 
 def notice_show(request, id):
     notice = Notice.objects.get(id=id)
-    return render(request, 'notice_show.html', {
-        'notice':notice,
-    })
+    if(request.user.username):
+        username = User.objects.get(username=request.user.username)
+        login_user = Profile.objects.filter(email=username)
+        if(login_user):
+            login_user.get()
+        return render(request, 'notice_show.html',{
+            'login_user':login_user,
+            'notice' : notice,
+        })
+    else:
+        return render(request, 'notice_show.html', {
+            'notice':notice,
+        })
+
+def notice_delete(request, id):
+    if request.method == 'POST':
+        notice = Notice.objects.filter(id=id)
+        notice.delete()
+        return redirect('../')
 
 def recruit(request):
     return render(request, 'recruit.html')
