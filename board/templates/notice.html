@@ -126,30 +126,16 @@
               </thead>
 
               <tbody>
+                {% for elem in notice %}
                 <tr>
                     <td>
-                      <a href="notice_show">
-                      Lorem Ipsum is simply dummy text Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                      <a href="{{elem.id}}">
+                      {{elem.title}}
                       </a>
                     </td>
-                  <td class="right">2020.05.12.</td>
+                  <td class="right">{{elem.date}}</td>
                 </tr>
-                <tr>
-                  <td>
-                    <a href="notice_show">
-                    Lorem Ipsum is simply dummy text Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                    </a>
-                  </td>
-                  <td class="right">2020.05.12.</td>
-                </tr>
-                <tr>
-                  <td>
-                    <a href="notice_show">
-                    Lorem Ipsum is simply dummy text Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                    </a>
-                  </td>
-                  <td class="right">2020.05.12.</td>
-                </tr>
+                {% endfor %}
               </tbody>
             </table>
           </div>

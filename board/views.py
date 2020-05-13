@@ -7,6 +7,7 @@ def main(request):
     return render(request, 'main.html')
 
 def notice(request):
+    notice = Notice.objects.all()
     if(request.user.username):
         username = User.objects.get(username=request.user.username)
         login_user = Profile.objects.filter(email=username)
@@ -14,10 +15,11 @@ def notice(request):
             login_user.get()
         return render(request, 'notice.html',{
             'login_user':login_user,
+            'notice' : notice,
         })
     else:
         return render(request, 'notice.html',{
-            
+            'notice' : notice
         })
 
 def about(request):
@@ -37,8 +39,11 @@ def notice_form(request):
     else:
         return render(request, 'notice_form.html')
 
-def notice_show(request):
-    return render(request, 'notice_show.html')
+def notice_show(request, id):
+    notice = Notice.objects.get(id=id)
+    return render(request, 'notice_show.html', {
+        'notice':notice,
+    })
 
 def recruit(request):
     return render(request, 'recruit.html')
