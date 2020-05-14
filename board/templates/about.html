@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
   <head>
@@ -25,33 +26,194 @@
   </head>
 
   <body>
-    <div class="parallax-container">
-      <div class="parallax"><img src="idea.jpg" style="filter: grayscale(50%)"></div>
+    <div class="parallax-container hide-on-small-only" style="height:650px;">
+      <div class="parallax"><img src="{% static "image/header.png" %}" style="max-width: 100%; height: auto; "></div>
       <div class="container" style="margin-top:10vh;">
-        <header style="background-color: #00000082; padding-top:50px; padding-bottom:50px;">
+        <!-- <header style="background-color: #00000082; padding-top:50px; padding-bottom:50px;">
           <h2 class="logo white-text center">2020 대구경북 아이디어톤 </h2>
           <h3 class="logo white-text center">SARS, MERS 그리고 COVID-19</h3>
-        </header>
+        </header> -->
       </div>
     </div>
+
+    <div class="parallax-container hide-on-med-and-up" style="height:300px;">
+      <div class="parallax"><img src="{% static "image/header.png" %}" style="max-width: 100%; height: auto; "></div>
+      <div class="container" style="margin-top:10vh;">
+        <!-- <header style="background-color: #00000082; padding-top:50px; padding-bottom:50px;">
+          <h2 class="logo white-text center">2020 대구경북 아이디어톤 </h2>
+          <h3 class="logo white-text center">SARS, MERS 그리고 COVID-19</h3>
+        </header> -->
+      </div>
+    </div>
+
     <div class="section white">
       <div class="row container">
         <h2 class="header logo">2020 대구경북 아이디어톤은,</h2>
         <p class="grey-text text-darken-3 lighten-3">
-          대구‧경북지역 학생 창업 역량 및 문제 해결능력 강화를 위해 대학, 대학원생들을 대상으로 진행되는 하는 아이디어톤 입니다. 참여 학생들은 팀을 이루어 주어진 문제를 해결하기 위한 과제를 수행하게 됩니다.
-          올해에는 <span style="font-weight:900;">지역사회 전염병(SARS, MERS, COVID-19 등) 문제해결</span>을 주제로 선정하였습니다.
+          &nbsp;대구‧경북지역 학생 창업 역량 및 문제 해결능력 강화를 위해 대학, 대학원생들을 대상으로 진행되는 하는 아이디어톤 입니다.</br>
+          &nbsp;참여 학생들은 팀을 이루어 주어진 문제를 해결하기 위한 과제를 수행하게 됩니다.</br>
+          &nbsp;올해에는 <span style="font-weight:900;">지역사회 전염병(SARS, MERS, COVID-19 등) 문제해결</span>을 주제로 다음과 같은 과제와 해결유형들을 선정하였습니다.
         </p>
+        <div class="divider"></div>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col s1 hide-on-small-only"></div>
+          <div class="col s12 m2">
+            <h4 class="logo center">교육</h4>
+            <div class="divider"></div>
+            <p class="center">
+              감염병으로 인한</br>교육 활동 위축 <br>
+              <a class="modal-trigger center" href="#edu">더 알아보기</a>
+            </p>
+            <!-- Modal Trigger -->
+
+            <!-- Modal Structure -->
+            <div id="edu" class="modal">
+              <div class="modal-content">
+                <h6 style="font-weight: 900;">감염병으로 인한 교육 활동 위축에 대한 해결책에는 무엇이 있을까 ?</h6>
+                <p>
+                  학생들의 야외 체육 활동의 감소</br>
+                  비대면 수업으로 인한 강의 전달력 저하
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col s12 m2">
+            <h4 class="logo center">경제</h4>
+            <div class="divider"></div>
+            <p class="center">팬데믹 후 경제</br>활동의 영구적 변화<br>
+            <a class="modal-trigger center" href="#eco">더 알아보기</a>
+          </p>
+          <!-- Modal Trigger -->
+
+          <!-- Modal Structure -->
+          <div id="eco" class="modal">
+            <div class="modal-content">
+              <h6 style="font-weight: 900;">감염병으로 인해 야기된 경제적 변화들이 영구적일 경우에 우리는 어떻게 대응해야 할까 ?</h6>
+              <p>
+                - 글로벌 물류량 감소와 밸류체인의 변화</br>
+
+                - 경제활동 방식의 변화 (대면에서 비대면으로)</br>
+
+                - 계약 불이행으로 인한 피해에 어떻게 대응하고 그 영향을 완화할 것인가 ?; 개학 연기로 인하여 급식 공급 농가가 입은 피해
+              </p>
+            </div>
+          </div>
+          </div>
+          <div class="col s12 m2">
+            <h4 class="logo center">의료</h4>
+            <div class="divider"></div>
+            <p class="center">공정하고 효과적인 </br> 의료 자원 분배</br>
+              <a class="modal-trigger center" href="#med">더 알아보기</a>
+            </p>
+            <div id="med" class="modal">
+              <div class="modal-content">
+                <h6 style="font-weight: 900;">감염병 대응 과정에서 드러난 물질적, 비 물질적 의료자원의 분배 과정에서 나타난 문제점을 어떻게 해결할 수 있을까 ?</h6>
+                <p>
+                  - 현장 의료진의 피로도 누적과 특정 지역에서 의료진 수요가 폭증하는 경우에 효과적으로 대응하는 방법</br>
+
+                  - 마스크 등 물질적 의료자원의 배분 문제; 기존의 생년월일 기준의 분배가 갖는 문제와 인구통계학적 관점에서 효과적인 대안 제시
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col s12 m2">
+            <h4 class="logo center">디자인</h4>
+            <div class="divider"></div>
+            <p class="center">차별 없는 </br> 디자인</br>
+              <a class="modal-trigger center" href="#des">더 알아보기</a>
+            </p>
+            <div id="des" class="modal">
+              <div class="modal-content">
+                <h6 style="font-weight: 900;">감염병 대응 과정에서 새로이 나타난, 혹은 접하게 된 디자인들에 대한 평가와 대안 제시 (차별 없는 디자인의 제시)</h6>
+                <p>
+                  - 팬데믹 이후 사람들의 통념 혹은 생활 양식 중 변화한 부분이 어떤 것이고, 이것이 사용자 경험 디자인으로 이어질 때 어떤 식으로 나타나는지 (키워드 : 비접촉식, 투명성, 독창성, 공간제한적)</br>
+
+                  / 팬데믹 이후로 한국 뿐만 아니라 전세계적인 패닉 상태 속에서, 기존에 당연하다고 여겨졌던 생활 양식들이 여러가지 변화를 겪었습니다. 아주 작게는 지인들과의 즐거운 모임이나 여행, 공연 등을 즐기지 못하게 되었다는 점, 생활 속에서 마스크를 필수적으로 착용하게 되었다는 점을 꼽을 수 있겠습니다. 좀 더 크게 보아서, 사회적으로는 어떤 변화가 있었을까요? (...) 이러한 부분을 유저 경험 디자인에 반영 시킬 때 어떤 식으로 나타낼 수 있을까요? 실내 생활의 증가, 외부 활동의 감소, 컨텐츠 사업의 성장, 여행·레져 산업의 붕괴, 원격 종교 행사 등, 여러 분야에서 동시다발적으로 나타난 사회적 변화 속에서 기존과 다르지만 효과적인 유저 경험 디자인을 고민해봅시다!</br>
+
+
+                  - 감염병 관련 정보 등을 신속하게 전달하는 동시에 개발한 서비스를 어필하기 위해, 범용성과 접근 용이성을 어떤식으로 확보할 수 있을까? 사회 내 정보 취약계층도 직관적으로 사용 가능하게 하기 위한 디자인 제시.</br>
+
+                  / 감염병은 남녀노소를 가리지 않고 걸릴 수 있지만, 이러한 정보를 손쉽게 수집할 수 있는 계층은 한정적입니다. 정보 격차가 발생하는 이유에는 여려가지가 있지만, 디바이스 보유의 차이, 어플리케이션의 존재 인지의 차이 등도 분명하게 이러한 이유 속에 포함될 겁니다. 디자인적으로 이를 뒤집어 생각해보면 사회적으로 충분히 합의가 되었다고 생각하는 UI 디자인 또한, 생소하게 받아들이는 계층이 분명히 존재한다는 뜻입니다. 이에 대해 생각해보면서 모든 사용자가 쉽게 알아보고, 쉽게 사용할 수 있으려면 어떠한 설계를 해야할지 함께 고민해보는 계기가 되었으면 좋겠습니다.
+
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col s12 m2">
+            <h4 class="logo center">창업</h4>
+            <div class="divider"></div>
+            <p class="center">고객의 인식 변화와 </br> 새로운 수요</br>
+              <a class="modal-trigger center" href="#ven">더 알아보기</a>
+            </p>
+            <div id="ven" class="modal">
+              <div class="modal-content">
+                <h6 style="font-weight: 900;">감염병 대응 과정에서 새로이 나타난, 혹은 접하게 된 디자인들에 대한 평가와 대안 제시 (차별 없는 디자인의 제시)</h6>
+                <p>
+                  - 재택 근무의 효율성에 대한 인식 변화</br>
+
+                  - 협업 소프트웨어의 중요성에 대한 인식</br>
+
+                  - 재난 알림 문자의 중요성에 대한 인식 변화; 재난문자를 통한 정보 전달에서 소외되었던 사람들을 위한 서비스 제시
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col s1 hide-on-small-only"></div>
+          <div class="col s12 m4">
+            <h4 class="logo center">BM</h4>
+            <div class="divider"></div>
+            <p></p>
+          </div>
+          <div class="col s12 m4">
+            <h4 class="logo center">UX/UI</h4>
+            <div class="divider"></div>
+            <p></p>
+          </div>
+          <div class="col s12 m4">
+            <h4 class="logo center">S/W</h4>
+            <div class="divider"></div>
+            <p></p>
+          </div>
+
+        </div>
       </div>
     </div>
-    <div class="parallax-container">
-      <div class="parallax"><img src="DGIST.jpg" style="filter: grayscale(50%)"></div>
+
+    <div class="parallax-container hide-on-small-only" style="height:350px;">
+      <div class="parallax"><img src="{% static "image/DGIST.jpg" %}" style="max-width: 100%; height: auto; "></div>
+      <div class="container" style="margin-top:10vh;">
+      </div>
+    </div>
+
+    <div class="parallax-container hide-on-med-and-up" style="height:200px;">
+      <div class="parallax"><img src="{% static "image/DGIST.jpg" %}" style="max-width: 100%; height: auto; "></div>
+      <div class="container" style="margin-top:10vh;">
+      </div>
     </div>
     <div class="section white">
-      <div class="row container">
-        <h2 class="header logo">아이디어톤 진행은,</h2>
-        <p class="grey-text text-darken-3 lighten-3">별도의 대회 플랫폼(링크)에서 진행됩니다.</p>
+      <div class="container">
+        <h4 class="logo">주최 및 후원</h4>
+
+        <div class="row">
+          <div class="col l3 s12">
+            <img src="{% static "image/ui_apply.jpg" %}" alt="" style="width:100%; height:auto;">
+          </div>
+          <div class="col l3 s12">
+            <img src="{% static "image/basiclogo_KE_symbol.png" %}" alt="" style="width:100%; height:auto;">
+          </div>
+        </div>
+        <h4 class="logo">일정</h4>
+
+        <img src="{% static "image/timeline.png" %}" alt="" style="width:100%; height:auto;">
+      </div>
+
+      <div class="row container center" style="margin-bottom:0px;">
+        <a href="/" class="btn-large dgist-blue-mid" style="font-weight:900;">대회 플랫폼 바로가기</a>
       </div>
     </div>
+    {% include 'footer.html' %}
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script type="text/javascript">
