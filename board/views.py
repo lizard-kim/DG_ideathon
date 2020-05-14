@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib import auth
 from django.contrib.auth.models import User
+from django.contrib.auth.hashers import check_password
 from .models import Profile, Idea, Notice, Recruit, Qna, Edu
 
 def main(request):
@@ -187,7 +188,7 @@ def sign_in(request):
             auth.login(request, user)
             return redirect('/main/')
         else:
-            return render(request, 'sign_in.html', {'error': 'email or password is incorrect.'})
+            return render(request, 'sign_in.html', {'error': '* 이메일 혹은 비밀번호가 잘못되었습니다.'})
     else:
         return render(request, 'sign_in.html')
 
@@ -196,3 +197,19 @@ def sign_out(request):
         auth.logout(request)
         return redirect('/main/')
     return render(request, 'main.html')
+
+def edit_pwd(request):
+    if request.method == 'POST':
+        password = request.POST['password']
+        new_password = request.POST['new_password']
+        password_confirm = request.POST['password_confirm']
+        user = request.user
+        if check_password(password,user.password) and new_password == password_confirm:
+            user.set_password(new_password)
+            user.save()
+            auth.login(request, user)
+            return redirect('/main/')
+        else:
+            return render(request, 'edit_pwd.html', {'error': '* 잘못된 정보를 기입하셨습니다.'})
+    else:
+        return render(request, 'edit_pwd.html')

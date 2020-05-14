@@ -20,4 +20,5 @@ urlpatterns = [
     path('edu/<int:id>', edu_show, name='edu_show'),
     path('sign_in/', sign_in, name='sign_in'),
     path('sign_out/', sign_out, name='sign_out'),
+    path('edit_pwd/', edit_pwd, name='edit_pwd'),
 ]
