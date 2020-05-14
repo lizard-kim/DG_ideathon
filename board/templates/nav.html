@@ -26,6 +26,9 @@
                     {% csrf_token %} <button class="page-link white-text logout" type="submit">로그아웃</button>
                 </li>
             </form>
+            <li style="display: inline; float:none;">
+                <a class="page-link white-text" href="{% url 'edit_pwd'%}" style="display: inline-block;">비밀번호 변경</a>
+            </li>
             {% else %}
             <li style="display: inline; float:none;">
                 <a class="page-link white-text" href="{% url 'sign_in'%}" style="display: inline-block;" >로그인</a>
