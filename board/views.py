@@ -87,7 +87,19 @@ def recruit_form(request):
     else:
         return render(request, 'recruit_form.html')
 
-def recruit_show(request):
+def recruit_show(request, id):
+    recruit = Recruit.objects.get(id=id)
+    if(request.user.username):
+        username = User.objects.get(username=request.user.username)
+        login_user = Profile.objects.filter(email=username).get()
+        return render(request, 'recruit_show.html',{
+            'login_user':login_user,
+            'recruit' : recruit,
+        })
+    else:
+        return render(request, 'recruit_show.html', {
+            'recruit':recruit,
+        })
     return render(request, 'recruit_show.html')
 
 def sign_in(request):
