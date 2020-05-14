@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib import auth
 from django.contrib.auth.models import User
-from .models import Profile, Idea, Notice
+from .models import Profile, Idea, Notice, Recruit
 
 def main(request):
     return render(request, 'main.html')
@@ -10,9 +10,7 @@ def notice(request):
     notice = Notice.objects.all()
     if(request.user.username):
         username = User.objects.get(username=request.user.username)
-        login_user = Profile.objects.filter(email=username)
-        if(login_user):
-            login_user.get()
+        login_user = Profile.objects.filter(email=username).get()
         return render(request, 'notice.html',{
             'login_user':login_user,
             'notice' : notice,
@@ -43,9 +41,7 @@ def notice_show(request, id):
     notice = Notice.objects.get(id=id)
     if(request.user.username):
         username = User.objects.get(username=request.user.username)
-        login_user = Profile.objects.filter(email=username)
-        if(login_user):
-            login_user.get()
+        login_user = Profile.objects.filter(email=username).get()
         return render(request, 'notice_show.html',{
             'login_user':login_user,
             'notice' : notice,
@@ -62,10 +58,34 @@ def notice_delete(request, id):
         return redirect('../')
 
 def recruit(request):
-    return render(request, 'recruit.html')
+    recruit = Recruit.objects.all()
+    if(request.user.username):
+        username = User.objects.get(username=request.user.username)
+        login_user = Profile.objects.filter(email=username).get()
+        return render(request, 'recruit.html',{
+            'login_user':login_user,
+            'recruit' : recruit,
+        })
+    else:
+        return render(request, 'recruit.html',{
+            'recruit' : recruit
+        })
 
 def recruit_form(request):
-    return render(request, 'recruit_form.html')
+    if request.method == 'POST':
+        title = request.POST['title']
+        contents = request.POST['contents']
+        if(request.user.username):
+            username = User.objects.get(username=request.user.username)
+        newrecruit = Recruit.objects.create(
+            title = title,
+            contents = contents,
+            writer = username,
+        )
+        return redirect('/recruit/')
+
+    else:
+        return render(request, 'recruit_form.html')
 
 def recruit_show(request):
     return render(request, 'recruit_show.html')
