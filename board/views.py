@@ -32,7 +32,7 @@ def notice_form(request):
             title = title,
             contents = contents,
         )
-        return redirect('../')
+        return redirect('/notice/')
 
     else:
         return render(request, 'notice_form.html')
@@ -55,7 +55,7 @@ def notice_delete(request, id):
     if request.method == 'POST':
         notice = Notice.objects.filter(id=id)
         notice.delete()
-        return redirect('../')
+        return redirect('/notice/')
 
 def recruit(request):
     recruit = Recruit.objects.all()
@@ -110,7 +110,7 @@ def sign_in(request):
         if user is not None:
             # login success
             auth.login(request, user)
-            return redirect('../')
+            return redirect('/main/')
         else:
             return render(request, 'sign_in.html', {'error': 'email or password is incorrect.'})
     else:
@@ -119,5 +119,5 @@ def sign_in(request):
 def sign_out(request):
     if request.method == 'POST':
         auth.logout(request)
-        return redirect('../')
+        return redirect('/main/')
     return render(request, 'main.html')
