@@ -2,7 +2,7 @@ from django.urls import path
 from .views import main, about, notice, notice_form, notice_show, notice_delete, recruit, recruit_form, recruit_show, sign_in,sign_out
 
 urlpatterns = [
-    path('', main, name='main'),
+    path('', about, name='about'),
     path('main/', main, name='main'),
     path('about/', about, name='about'),
     path('notice/', notice, name='notice'),
