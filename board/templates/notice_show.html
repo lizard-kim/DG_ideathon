@@ -90,9 +90,9 @@
         <div class="container">
           <div class="col s12">
             <h4>{{notice.title}}</h4>
-            <p class="grey-text">2020.05.12.</p>
+            <p class="grey-text">{{notice.date}}</p>
             {% if user.is_authenticated %}
-            {% if login_user.auth == admin %}
+            {% if login_user.auth == "admin" %}
             <form method="POST" action="{% url 'notice_delete' notice.id %}">
               {% csrf_token %}<button type="submit"> delete </button>
             </form>

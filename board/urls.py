@@ -11,7 +11,7 @@ urlpatterns = [
     path('notice/<int:id>/delete', notice_delete, name='notice_delete'),
     path('recruit/', recruit, name='recruit'),
     path('recruit_form/', recruit_form, name='recruit_form'),
-    path('recruit_show/', recruit_show, name='recruit_show'),
+    path('recruit/<int:id>', recruit_show, name='recruit_show'),
     path('sign_in/', sign_in, name='sign_in'),
     path('sign_out/', sign_out, name='sign_out'),
 ]
