@@ -3,6 +3,7 @@ from .views import main, about, notice, notice_form, notice_show, notice_delete,
 
 urlpatterns = [
     path('', main, name='main'),
+    path('main/', main, name='main'),
     path('about/', about, name='about'),
     path('notice/', notice, name='notice'),
     path('notice_form/', notice_form, name='notice_form'),

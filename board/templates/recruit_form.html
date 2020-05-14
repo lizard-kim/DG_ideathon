@@ -88,19 +88,20 @@
     <section id="content">
       <div class="row">
         <div class="container">
-          <form class="col s12">
+          <form class="col s12" method="POST" action="{% url 'recruit_form'%}">
+            {% csrf_token %}
             <div class="row">
               <h4>팀원 모집 공고 작성하기</h4>
               <div class="input-field col s12">
-                <input id="title" type="text">
+                <input name="title" id="title" type="text" value="">
                 <label for="title">제목</label>
               </div>
               <div class="input-field col s12">
-                <textarea id="textarea1" class="materialize-textarea"></textarea>
+                <textarea name="contents" id="textarea1" class="materialize-textarea" value=""></textarea>
                 <label for="textarea1">본문</label>
               </div>
               <div class="input-field col s12">
-                <a class="dgist-blue-mid waves-effect waves-light btn">제출하기</a>
+                <button class="dgist-blue-mid waves-effect waves-light btn" type="submit">제출하기</button>
               </div>
             </div>
           </form>
