@@ -96,3 +96,37 @@ class Recruit(models.Model):
     )
     def __str__(self):
         return self.title
+
+class Qna(models.Model):
+    title = models.CharField(
+        max_length=50,
+    )
+    date = models.DateField(
+        auto_now=True, 
+        auto_now_add=False
+    )
+    contents = models.TextField(
+        max_length=500,
+        blank=True
+    )
+    writer = models.CharField(
+        max_length=50,
+        blank=True
+    )
+    def __str__(self):
+        return self.title
+
+class Edu(models.Model):
+    title = models.CharField(
+        max_length=50,
+    )
+    date = models.DateField(
+        auto_now=True, 
+        auto_now_add=False
+    )
+    contents = models.TextField(
+        max_length=500,
+        blank=True
+    ) 
+    def __str__(self):
+        return self.title

@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import main, about, notice, notice_form, notice_show, notice_delete, recruit, recruit_form, recruit_show, sign_in,sign_out
+from .views import *
 
 urlpatterns = [
     path('', about, name='about'),
@@ -12,6 +12,12 @@ urlpatterns = [
     path('recruit/', recruit, name='recruit'),
     path('recruit_form/', recruit_form, name='recruit_form'),
     path('recruit/<int:id>', recruit_show, name='recruit_show'),
+    path('qna/', qna, name='qna'),
+    path('qna_form/', qna_form, name='qna_form'),
+    path('qna/<int:id>', qna_show, name='qna_show'),
+    path('edu/', edu, name='edu'),
+    #path('edu_form/', edu_form, name='edu_form'),
+    path('edu/<int:id>', edu_show, name='edu_show'),
     path('sign_in/', sign_in, name='sign_in'),
     path('sign_out/', sign_out, name='sign_out'),
 ]
