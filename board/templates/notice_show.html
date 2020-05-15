@@ -94,7 +94,7 @@
             {% if user.is_authenticated %}
             {% if login_user.auth == "admin" %}
             <form method="POST" action="{% url 'notice_delete' notice.id %}">
-              {% csrf_token %}<button type="submit"> delete </button>
+              {% csrf_token %}<button type="submit" onclick="return confirm('Are you sure?')"> delete </button>
             </form>
             {% endif %}
             {% endif %}
