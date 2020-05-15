@@ -57,7 +57,7 @@
     </style>
 
     <header class="hide-on-small-only dgist-blue-dark" style="height: 128px;">
-      <a href="main"><h2 class="center white-text logo">2020 대구 경북 아이디어톤</h2></a>
+      <a href="{% url 'main'%}"><h2 class="center white-text logo">2020 대구 경북 아이디어톤</h2></a>
     </header>
     <style>
 
@@ -91,56 +91,18 @@
           <div class="col s12">
             <h4>{{edu.title}}</h4>
             <p class="grey-text">{{edu.date}}</p>
+            {% if user.is_authenticated %}
+            {% if login_user.auth == "admin" %}
+            <form method="POST" action="{% url 'edu_delete' edu.id %}">
+              {% csrf_token %}<button type="submit" onclick="return confirm('Are you sure?')"> delete </button>
+            </form>
+            {% endif %}
+            {% endif %}
             <div class="divider"></div>
-            <p>
+            <p style="white-space:pre;">
               {{edu.contents}}
             </p>
           </div>
-          <!--
-          <div class="col s12">
-            <table class="striped">
-              <thead>
-                <tr>
-                    <th>댓글</th>
-                    <th class="right">작성자</th>
-                </tr>
-              </thead>
-
-              <tbody>
-                <tr>
-                    <td>
-                      Lorem Ipsum is simply dummy text Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                    </td>
-                  <td class="right">baicalin</td>
-                </tr>
-                <tr>
-                  <td>
-                    Lorem Ipsum is simply dummy text Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                  </td>
-                  <td class="right">lion</td>
-                </tr>
-                <tr>
-                  <td>
-                    Lorem Ipsum is simply dummy text Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                  </td>
-                  <td class="right">dgist</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
-          <form class="col s12">
-            <div class="row">
-              <div class="input-field col s12">
-                <textarea id="textarea1" class="materialize-textarea"></textarea>
-                <label for="textarea1">댓글</label>
-              </div>
-              <div class="input-field col s12">
-                <a class="dgist-blue-mid waves-effect waves-light btn">댓글 달기</a>
-              </div>
-            </div>
-          </form>
-          -->
         </div>
       </div>
     </section>

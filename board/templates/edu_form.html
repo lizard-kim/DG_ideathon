@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+{% if user.is_authenticated %}
+{% if login_user.auth == admin %}
 <html>
   <head>
     <!--Import Google Icon Font and fonts-->
@@ -57,7 +59,7 @@
     </style>
 
     <header class="hide-on-small-only dgist-blue-dark" style="height: 128px;">
-      <a href="{% url 'main'%}"><h2 class="center white-text logo">2020 대구 경북 아이디어톤</h2></a>
+      <a href="main"><h2 class="center white-text logo">2020 대구 경북 아이디어톤</h2></a>
     </header>
     <style>
 
@@ -88,51 +90,24 @@
     <section id="content">
       <div class="row">
         <div class="container">
-          <div class="col s12">
-          </div>
-
-          <div class="col s12">
-            <table class="striped">
-              <thead>
-                <tr>
-                    <th>제목</th>
-                    <th class="right">게시일</th>
-                </tr>
-              </thead>
-
-              <tbody>
-                {% for elem in edu %}
-                <tr>
-                    <td>
-                      <a href="{{elem.id}}">
-                      {{elem.title}}
-                      </a>
-                    </td>
-                  <td class="right">{{elem.date}}</td>    
-                  <td class="right">{{elem.writer}}</td>              
-                </tr>
-                {% endfor %}
-              </tbody>
-            </table>
-          </div>
-
-          {% if user.is_authenticated %}
-          {% if login_user.auth == "admin"%}
-          <div class="col s12" style="margin-top:15px;">
-            <a href="{% url 'edu_form'%}" class="btn dgist-blue-mid">교육자료 공지 작성하기</a>
-          </div>
-          {% endif %}
-          {% endif %}
-
+          <form class="col s12" method="POST" action="{% url 'edu_form'%}">
+            {% csrf_token %}
+            <div class="row">
+              <h4>교육자료 작성하기</h4>
+              <div class="input-field col s12">
+                <input name="title" id="title" type="text" value="">
+                <label for="title">제목</label>
+              </div>
+              <div class="input-field col s12">
+                <textarea name="contents" id="textarea1" class="materialize-textarea" value=""></textarea>
+                <label for="textarea1">본문</label>
+              </div>
+              <div class="input-field col s12">
+                <button class="dgist-blue-mid waves-effect waves-light btn" type="submit">제출하기</button>
+              </div>
+            </div>
+          </form>
         </div>
-
-        <div class="row">
-          <div class="container">
-
-          </div>
-
-        </div>
-
       </div>
     </section>
 
@@ -145,3 +120,5 @@
 
   </body>
 </html>
+{% endif %}
+{% endif %}
