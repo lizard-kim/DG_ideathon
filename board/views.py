@@ -163,6 +163,20 @@ def edu(request):
             'edu' : edu
         })
 
+def edu_form(request):
+    if request.method == 'POST':
+        title = request.POST['title']
+        contents = request.POST['contents']
+
+        newedu = Edu.objects.create(
+            title = title,
+            contents = contents,
+        )
+        return redirect('/edu/')
+
+    else:
+        return render(request, 'edu_form.html')
+
 def edu_show(request, id):
     edu = Edu.objects.get(id=id)
     if(request.user.username):
@@ -177,6 +191,12 @@ def edu_show(request, id):
             'edu':recruit,
         })
     return render(request, 'edu_show.html')
+
+def edu_delete(request, id):
+    if request.method == 'POST':
+        edu = Edu.objects.filter(id=id)
+        edu.delete()
+        return redirect('/edu/')
 
 def sign_in(request):
     if request.method == 'POST':
