@@ -96,7 +96,6 @@
               {{recruit.contents}}
             </p>
           </div>
-          <!--
           <div class="col s12">
             <table class="striped">
               <thead>
@@ -107,40 +106,30 @@
               </thead>
 
               <tbody>
+                {% for comment in recruit.comments.all %}
                 <tr>
                     <td>
-                      Lorem Ipsum is simply dummy text Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                      {{ comment.contents }}
                     </td>
-                  <td class="right">baicalin</td>
+                  <td class="right">{{ comment.writer }}</td>
                 </tr>
-                <tr>
-                  <td>
-                    Lorem Ipsum is simply dummy text Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                  </td>
-                  <td class="right">lion</td>
-                </tr>
-                <tr>
-                  <td>
-                    Lorem Ipsum is simply dummy text Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                  </td>
-                  <td class="right">dgist</td>
-                </tr>
+                {% endfor %}
               </tbody>
             </table>
           </div>
 
-          <form class="col s12">
+          <form class="col s12" method="POST" action="{% url 'recruit_comment_form' recruit.id %}">
+            {% csrf_token %}
             <div class="row">
               <div class="input-field col s12">
-                <textarea id="textarea1" class="materialize-textarea"></textarea>
+                <textarea name="contents" id="textarea1" class="materialize-textarea" value=""></textarea>
                 <label for="textarea1">댓글</label>
               </div>
               <div class="input-field col s12">
-                <a class="dgist-blue-mid waves-effect waves-light btn">댓글 달기</a>
+                <button class="dgist-blue-mid waves-effect waves-light btn" type="submit">댓글 달기</button>
               </div>
             </div>
           </form>
-          -->
         </div>
       </div>
     </section>
@@ -153,4 +142,5 @@
     </script>
 
   </body>
+  {% include 'footer.html' %}
 </html>
