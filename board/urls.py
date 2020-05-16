@@ -28,8 +28,7 @@ urlpatterns = [
 
     path('edu/', edu, name='edu'),
     path('edu_form/', edu_form, name='edu_form'),
-    path('edu/<int:id>', edu_show, name='edu_show'),
-    path('edu/<int:id>/delete', edu_delete, name='edu_delete'),
+    path('edu/<int:id>/', edu_show, name='edu_show'),
     path('edu/<int:id>/delete', edu_delete, name='edu_delete'),
     path('edu/<int:id>/edit', edu_edit, name='edu_edit'),
 

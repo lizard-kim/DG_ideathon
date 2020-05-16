@@ -133,7 +133,6 @@ def recruit_show(request, id):
         return render(request, 'recruit_show.html', {
             'recruit':recruit,
         })
-    return render(request, 'recruit_show.html')
 
 def recruit_delete(request, id):
     if request.method == 'POST':
@@ -201,7 +200,6 @@ def qna_show(request, id):
         return render(request, 'qna_show.html', {
             'qna':qna,
         })
-    return render(request, 'qna_show.html')
 
 def qna_delete(request, id):
     if request.method == 'POST':
