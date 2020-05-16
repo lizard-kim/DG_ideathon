@@ -38,6 +38,8 @@
         display: inline-block;
         font-size: 14px;
       }
+      p { word-break: break-all }
+
     </style>
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
@@ -76,20 +78,20 @@
             <p class="grey-text">{{qna.date}}</p>
             {% if user.is_authenticated %}
             {% if login_user.auth == "admin" %}
-            <div style="display:flex; flex-direction:row;">              
+            <div style="display:flex; flex-direction:row;">
               <form method="POST" action="{% url 'qna_delete' qna.id %}">
                 {% csrf_token %}<button type="submit" onclick="return confirm('Are you sure?')"> delete </button>
               </form>
               <a href="{% url 'qna_edit' qna.id %}" class="dgist-blue-mid waves-effect waves-light btn">수정하기</a>
             </div>
             {% endif %}
-            {% endif %}            
+            {% endif %}
             <div class="divider"></div>
             <p>
               {{qna.contents}}
             </p>
           </div>
-          
+
           <div class="col s12">
             <table class="striped">
               <thead>
