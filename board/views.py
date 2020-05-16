@@ -38,6 +38,22 @@ def notice_form(request):
     else:
         return render(request, 'notice_form.html')
 
+def notice_edit(request, id):
+    if request.method == 'POST':
+        notice = Notice(id=id)
+        title = request.POST['title']
+        contents = request.POST['contents']
+        notice.title = title
+        notice.contents = contents
+        notice.save()
+        return redirect('./')
+
+    else:     
+        notice = Notice.objects.filter(id=id).get() 
+        return render(request, 'notice_edit.html',{
+            'notice' : notice
+        })
+
 def notice_show(request, id):
     notice = Notice.objects.get(id=id)
     if(request.user.username):
@@ -88,6 +104,22 @@ def recruit_form(request):
     else:
         return render(request, 'recruit_form.html')
 
+def recruit_edit(request, id):
+    if request.method == 'POST':
+        recruit = Notice(id=id)
+        title = request.POST['title']
+        contents = request.POST['contents']
+        recruit.title = title
+        recruit.contents = contents
+        recruit.save()
+        return redirect('./')
+
+    else:     
+        recruit = Recruit.objects.filter(id=id).get() 
+        return render(request, 'recruit_edit.html',{
+            'recruit' : recruit
+        })
+
 def recruit_show(request, id):
     recruit = Recruit.objects.get(id=id)
     if(request.user.username):
@@ -102,6 +134,12 @@ def recruit_show(request, id):
             'recruit':recruit,
         })
     return render(request, 'recruit_show.html')
+
+def recruit_delete(request, id):
+    if request.method == 'POST':
+        recruit = Recruit.objects.filter(id=id)
+        recruit.delete()
+        return redirect('/recruit/')
 
 def qna(request):
     qna = Qna.objects.all()
@@ -134,6 +172,22 @@ def qna_form(request):
     else:
         return render(request, 'qna_form.html')
 
+def qna_edit(request, id):
+    if request.method == 'POST':
+        qna = Notice(id=id)
+        title = request.POST['title']
+        contents = request.POST['contents']
+        qna.title = title
+        qna.contents = contents
+        qna.save()
+        return redirect('./')
+
+    else:     
+        qna = Qna.objects.filter(id=id).get() 
+        return render(request, 'qna_edit.html',{
+            'qna' : qna
+        })
+
 def qna_show(request, id):
     qna = Qna.objects.get(id=id)
     if(request.user.username):
@@ -148,6 +202,12 @@ def qna_show(request, id):
             'qna':qna,
         })
     return render(request, 'qna_show.html')
+
+def qna_delete(request, id):
+    if request.method == 'POST':
+        qna = Qna.objects.filter(id=id)
+        qna.delete()
+        return redirect('/qna/')
 
 def edu(request):
     edu = Edu.objects.all()
@@ -176,6 +236,22 @@ def edu_form(request):
 
     else:
         return render(request, 'edu_form.html')
+
+def edu_edit(request, id):
+    if request.method == 'POST':
+        edu = Notice(id=id)
+        title = request.POST['title']
+        contents = request.POST['contents']
+        edu.title = title
+        edu.contents = contents
+        edu.save()
+        return redirect('./')
+
+    else:     
+        edu = Edu.objects.filter(id=id).get() 
+        return render(request, 'edu_edit.html',{
+            'edu' : edu
+        })
 
 def edu_show(request, id):
     edu = Edu.objects.get(id=id)

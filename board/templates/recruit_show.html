@@ -91,6 +91,16 @@
           <div class="col s12">
             <h4>{{recruit.title}}</h4>
             <p class="grey-text">{{recruit.date}}</p>
+            {% if user.is_authenticated %}
+            {% if login_user.auth == "admin" %}
+            <div style="display:flex; flex-direction:row;">              
+              <form method="POST" action="{% url 'recruit_delete' recruit.id %}">
+                {% csrf_token %}<button type="submit" onclick="return confirm('Are you sure?')"> delete </button>
+              </form>
+              <a href="{% url 'recruit_edit' recruit.id %}" class="dgist-blue-mid waves-effect waves-light btn">수정하기</a>
+            </div>
+            {% endif %}
+            {% endif %}            
             <div class="divider"></div>
             <p>
               {{recruit.contents}}
