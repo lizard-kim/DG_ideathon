@@ -119,7 +119,7 @@
           {% if user.is_authenticated %}
           {% if login_user.auth == "admin" or login_user.auth == "leader" %}
           <div class="col s12" style="margin-top:15px;">
-            <a href="{% url 'notice_form' %}" class="btn dgist-blue-mid">팀원 모집 공고 작성하기</a>
+            <a href="{% url 'recruit_form' %}" class="btn dgist-blue-mid">팀원 모집 공고 작성하기</a>
           </div>
           {% endif %}
           {% endif %}
@@ -144,4 +144,6 @@
     </script>
 
   </body>
+  {% include 'footer.html' %}
+
 </html>

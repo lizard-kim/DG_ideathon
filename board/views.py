@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib import auth
 from django.contrib.auth.models import User
 from django.contrib.auth.hashers import check_password
-from .models import Profile, Idea, Notice, Recruit, Qna, Edu
+from .models import *
 
 def main(request):
     return render(request, 'main.html')
@@ -145,7 +145,7 @@ def qna_show(request, id):
         })
     else:
         return render(request, 'qna_show.html', {
-            'qna':recruit,
+            'qna':qna,
         })
     return render(request, 'qna_show.html')
 
@@ -233,3 +233,35 @@ def edit_pwd(request):
             return render(request, 'edit_pwd.html', {'error': '* 잘못된 정보를 기입하셨습니다.'})
     else:
         return render(request, 'edit_pwd.html')
+
+
+def comment_form(request, id):
+    #print(request.path)
+    path = request.path
+    path = path[1:]
+    #print(path)
+    path_len = len(path)
+    location = ""
+
+    i = 0
+    while(path[i] != "/"):
+        point = path[i]
+        location += point
+        i += 1
+    #print(location)
+
+    if request.method == 'POST':
+        contents = request.POST['contents']
+        if(request.user.username):
+            username = User.objects.get(username=request.user.username)
+        newcomment = Comment.objects.create(
+            contents = contents,
+            writer = username,
+        )
+        if(location == "qna"):
+            qna = Qna.objects.filter(id=id).get()      
+            qna.comments.add(newcomment)
+        elif(location == "recruit"):
+            recruit = Recruit.objects.filter(id=id).get()      
+            recruit.comments.add(newcomment)
+        return redirect('../')

@@ -94,6 +94,11 @@ class Recruit(models.Model):
         max_length=50,
         blank=True
     )
+    comments = models.ManyToManyField(
+        "Comment",
+        blank=True,
+        related_name="recruit_comments"
+    )
     def __str__(self):
         return self.title
 
@@ -113,6 +118,11 @@ class Qna(models.Model):
         max_length=50,
         blank=True
     )
+    comments = models.ManyToManyField(
+        "Comment",
+        blank=True,
+        related_name="qna_comments"
+    )
     def __str__(self):
         return self.title
 
@@ -130,3 +140,18 @@ class Edu(models.Model):
     ) 
     def __str__(self):
         return self.title
+
+class Comment(models.Model):
+    contents = models.TextField(
+        max_length=300
+    )
+    date = models.DateField(
+        auto_now=True, 
+        auto_now_add=False
+    )
+    writer = models.CharField(
+        max_length=50,
+        blank=True
+    )
+    def __str__(self):
+        return self.contents
