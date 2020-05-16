@@ -93,9 +93,12 @@
             <p class="grey-text">{{notice.date}}</p>
             {% if user.is_authenticated %}
             {% if login_user.auth == "admin" %}
-            <form method="POST" action="{% url 'notice_delete' notice.id %}">
-              {% csrf_token %}<button type="submit" onclick="return confirm('Are you sure?')"> delete </button>
-            </form>
+            <div style="display:flex; flex-direction:row;">
+              <form method="POST" action="{% url 'notice_delete' notice.id %}">
+                {% csrf_token %}<button type="submit" class="dgist-blue-mid waves-effect waves-light btn" onclick="return confirm('Are you sure?')"> delete </button>
+              </form>
+              <a href="{% url 'notice_edit' notice.id %}" class="dgist-blue-mid waves-effect waves-light btn">수정하기</a>
+            </div>
             {% endif %}
             {% endif %}
             <div class="divider"></div>

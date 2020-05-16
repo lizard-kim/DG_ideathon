@@ -1,0 +1,21 @@
+{% extends 'edit_base.html' %}
+
+{% block content %}
+<form class="col s12" method="POST" action="{% url 'qna_edit' qna.id %}">
+  {% csrf_token %}
+  <div class="row">
+    <h4>수정 하기</h4>
+    <div class="input-field col s12">
+      <input name="title" id="title" type="text" value="{{qna.title}}">
+      <label for="title">제목</label>
+    </div>
+    <div class="input-field col s12">
+      <textarea name="contents" id="textarea1" class="materialize-textarea" value=""> {{qna.contents}} </textarea>
+      <label for="textarea1"></label>
+    </div>
+    <div class="input-field col s12">
+      <button class="dgist-blue-mid waves-effect waves-light btn" type="submit">제출하기</button>
+    </div>
+  </div>
+</form>
+{% endblock %}
