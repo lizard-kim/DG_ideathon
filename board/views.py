@@ -106,7 +106,7 @@ def recruit_form(request):
 
 def recruit_edit(request, id):
     if request.method == 'POST':
-        recruit = Notice(id=id)
+        recruit = Recruit(id=id)
         title = request.POST['title']
         contents = request.POST['contents']
         recruit.title = title
@@ -174,7 +174,7 @@ def qna_form(request):
 
 def qna_edit(request, id):
     if request.method == 'POST':
-        qna = Notice(id=id)
+        qna = Qna(id=id)
         title = request.POST['title']
         contents = request.POST['contents']
         qna.title = title
@@ -239,7 +239,7 @@ def edu_form(request):
 
 def edu_edit(request, id):
     if request.method == 'POST':
-        edu = Notice(id=id)
+        edu = Edu(id=id)
         title = request.POST['title']
         contents = request.POST['contents']
         edu.title = title
