@@ -94,6 +94,10 @@ class Recruit(models.Model):
         max_length=50,
         blank=True
     )
+    job = models.CharField(
+        max_length=50,
+        blank=True
+    )
     comments = models.ManyToManyField(
         "Comment",
         blank=True,

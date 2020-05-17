@@ -92,11 +92,13 @@
           </div>
 
           <div class="col s12">
-            <table class="striped">
+            <table class="striped" style="table-layout: fixed">        
               <thead>
                 <tr>
                     <th>제목</th>
-                    <th class="right">게시일</th>
+                    <th class="right" style="width:150px; text-align:center" nowrap>게시일</th>
+                    <th class="right" style="width:80px; text-align:center">글쓴이</th>
+                    <th class="right">모집직군</th>
                 </tr>
               </thead>
 
@@ -108,8 +110,9 @@
                       {{elem.title}}
                       </a>
                     </td>
-                  <td class="right">{{elem.date}}</td>
-                  <td class="right">{{elem.writer}}</td>
+                  <td class="right" style="width:150px; text-align:center" nowrap>{{elem.date}}</td>
+                  <td class="right" style="width:80px; text-align:center">{{elem.writer}}</td>
+                  <td class="right">{{elem.job}}</td>
                 </tr>
                 {% endfor %}
               </tbody>
