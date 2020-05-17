@@ -92,12 +92,14 @@ def recruit_form(request):
     if request.method == 'POST':
         title = request.POST['title']
         contents = request.POST['contents']
+        job = request.POST['job']
         if(request.user.username):
             username = User.objects.get(username=request.user.username)
         newrecruit = Recruit.objects.create(
             title = title,
             contents = contents,
             writer = username,
+            job = job,
         )
         return redirect('/recruit/')
 
@@ -109,8 +111,10 @@ def recruit_edit(request, id):
         recruit = Recruit(id=id)
         title = request.POST['title']
         contents = request.POST['contents']
+        job = request.POST['job']
         recruit.title = title
         recruit.contents = contents
+        recruit.job = job
         recruit.save()
         return redirect('./')
 
