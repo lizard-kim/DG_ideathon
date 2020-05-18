@@ -85,16 +85,30 @@
               </thead>
 
               <tbody>
-                {% for elem in notice %}
+                {% for elem in midterm %}
                 <tr>
                     <td>
                       <a href="{{elem.id}}">
+                      [{{elem.problem_category}}]
+                      [{{elem.solution}}]
                       {{elem.title}}
                       </a>
                     </td>
                   <td class="right">{{elem.date}}</td>
                 </tr>
                 {% endfor %}
+                <!-- START: 게시물 예시 -->
+                <!-- <tr>
+                    <td>
+                      <a href="{{elem.id}}">
+                      [UX/UI]
+                      [교육]
+                      장애 아동을 위한 원격 교육 체계 개선
+                      </a>
+                    </td>
+                  <td class="right">2020. 05. 19.</td>
+                </tr> -->
+                <!-- END: 게시물 예시 -->
               </tbody>
             </table>
           </div>
