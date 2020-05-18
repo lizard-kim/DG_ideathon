@@ -38,5 +38,7 @@ urlpatterns = [
 
     path('midterm/', midterm, name='midterm'),
     path('midterm_form/', midterm_form, name='midterm_form'),
+    path('midterm/1', midterm_show, name='midterm_show'),
+
 
 ]

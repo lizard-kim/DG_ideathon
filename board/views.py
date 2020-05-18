@@ -350,3 +350,6 @@ def midterm(request):
 
 def midterm_form(request):
     return render(request, 'midterm_form.html')
+
+def midterm_show(request):
+    return render(request, 'midterm_show.html')
