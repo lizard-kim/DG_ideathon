@@ -48,8 +48,8 @@ def notice_edit(request, id):
         notice.save()
         return redirect('./')
 
-    else:     
-        notice = Notice.objects.filter(id=id).get() 
+    else:
+        notice = Notice.objects.filter(id=id).get()
         return render(request, 'notice_edit.html',{
             'notice' : notice
         })
@@ -118,8 +118,8 @@ def recruit_edit(request, id):
         recruit.save()
         return redirect('./')
 
-    else:     
-        recruit = Recruit.objects.filter(id=id).get() 
+    else:
+        recruit = Recruit.objects.filter(id=id).get()
         return render(request, 'recruit_edit.html',{
             'recruit' : recruit
         })
@@ -185,8 +185,8 @@ def qna_edit(request, id):
         qna.save()
         return redirect('./')
 
-    else:     
-        qna = Qna.objects.filter(id=id).get() 
+    else:
+        qna = Qna.objects.filter(id=id).get()
         return render(request, 'qna_edit.html',{
             'qna' : qna
         })
@@ -249,8 +249,8 @@ def edu_edit(request, id):
         edu.save()
         return redirect('./')
 
-    else:     
-        edu = Edu.objects.filter(id=id).get() 
+    else:
+        edu = Edu.objects.filter(id=id).get()
         return render(request, 'edu_edit.html',{
             'edu' : edu
         })
@@ -337,9 +337,16 @@ def comment_form(request, id):
             writer = username,
         )
         if(location == "qna"):
-            qna = Qna.objects.filter(id=id).get()      
+            qna = Qna.objects.filter(id=id).get()
             qna.comments.add(newcomment)
         elif(location == "recruit"):
-            recruit = Recruit.objects.filter(id=id).get()      
+            recruit = Recruit.objects.filter(id=id).get()
             recruit.comments.add(newcomment)
         return redirect('../')
+
+
+def midterm(request):
+    return render(request, 'midterm.html')
+
+def midterm_form(request):
+    return render(request, 'midterm_form.html')
