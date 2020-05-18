@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!--Import Google Icon Font and fonts-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Do+Hyeon&amp;display=swap" rel="stylesheet">
+
+    <style>
+      body {
+        font:400 16px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+        color:#111;
+        background-color:#fdfdfd;
+        -webkit-text-size-adjust:100%;
+        -webkit-font-feature-settings:"kern" 1;
+        -moz-font-feature-settings:"kern" 1;
+        -o-font-feature-settings:"kern" 1;
+        font-feature-settings:"kern" 1;
+        font-kerning:normal;
+        display:flex;
+        min-height:100vh;
+        flex-direction:column
+      }
+      .logo {
+        font-family: 'Do Hyeon', sans-serif;
+      }
+      .dgist-blue-dark {
+        background-color: #001752 !important;
+      }
+      .dgist-blue-mid {
+        background-color: #002991 !important;
+      }
+      .logout{
+        background-color: #001752 !important;
+        border: none;
+        color: white;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 14px;
+      }
+    </style>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>2020 대구 경북 아이디어톤</title>
+
+  </head>
+
+  <body>
+
+    <style media="screen">
+      .carousel{
+        height: 64px !important;
+      }
+    </style>
+
+    <header class="hide-on-small-only dgist-blue-dark" style="height: 128px;">
+      <a href="main"><h2 class="center white-text logo">2020 대구 경북 아이디어톤</h2></a>
+    </header>
+    <style>
+
+    </style>
+
+    <!-- Navbar -->
+    {% include 'nav.html' %}
+
+    <section id="content">
+      <div class="row">
+        <div class="container">
+          <form class="col s12" method="POST" action="{% url 'notice_form'%}">
+            {% csrf_token %}
+            <div class="row">
+              <h4>중간 피드백 작성하기</h4>
+              <div class="input-field col s12">
+                <input name="title" id="title" type="text" value="">
+                <label for="title">아이디어 제목</label>
+              </div>
+
+              <div class="input-field col l6 s12">
+                <input name="title" id="title" type="text" value="">
+                <label for="title">팀명</label>
+              </div>
+
+              <div class="input-field col l6 s12">
+                <input name="title" id="title" type="text" value="">
+                <label for="title">대표자</label>
+              </div>
+
+              <div class="input-field col l6 s12">
+                <select>
+                  <option value="" disabled selected>과제 분야 선택</option>
+                  <option value="1">경제</option>
+                  <option value="2">교육</option>
+                  <option value="3">의료</option>
+                  <option value="3">디자인</option>
+                  <option value="3">창업</option>
+                </select>
+                <label>과제 분야</label>
+              </div>
+
+
+              <div class="input-field col l6 s12">
+                <select>
+                  <option value="" disabled selected>문제 해결 유형 선택</option>
+                  <option value="1">BM</option>
+                  <option value="2">UX/UI</option>
+                  <option value="3">S/W</option>
+                </select>
+                <label>문제 해결 유형</label>
+              </div>
+
+
+
+              <div class="input-field col s12">
+                <textarea style="height: 6rem;"name="contents" id="textarea1" class="materialize-textarea" value=""  data-length="250" placeholder="# 어떤 경로로 아이디어를 제안하게 되었는지, 우리 사회는 그 아이디어가 정말로 필요한지 제시"></textarea>
+                <label for="textarea1">아이디어 고안 동기</label>
+              </div>
+
+              <div class="input-field col s12">
+                <textarea style="height: 12rem;"name="contents" id="textarea1" class="materialize-textarea" value=""  data-length="250" placeholder="# 1. 비즈니스모델 캔버스: BM 캔버스 요약
+# 2. UI/UX 디자인: 현재 구상하는 디자인에 대한 간단한 설명, 디자인 계획
+# 3. SW 설계: 현재 구상하는 프로그램에 대한 간단한 설명, 프로그램 개발 계획"></textarea>
+                <label for="textarea1">아이디어 실현과정</label>
+              </div>
+
+              <div class="input-field col s12">
+                <textarea style="height: 6rem;"name="contents" id="textarea1" class="materialize-textarea" value=""  data-length="250" placeholder="# 이 아이디어가 성공적으로 세상에 나왔을 때, 우리 사회는 어떻게 변화할지 미래 모습을 제시"></textarea>
+                <label for="textarea1">기대 효과</label>
+              </div>
+
+
+              <div class="input-field col s12">
+                <button class="dgist-blue-mid waves-effect waves-light btn" type="submit">제출하기</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script type="text/javascript">
+      M.AutoInit();
+    </script>
+
+  </body>
+  {% include 'footer.html' %}
+
+</html>
