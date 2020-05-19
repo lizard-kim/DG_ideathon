@@ -342,14 +342,78 @@ def comment_form(request, id):
         elif(location == "recruit"):
             recruit = Recruit.objects.filter(id=id).get()
             recruit.comments.add(newcomment)
+        elif(location == "midterm"):
+            recruit = Mid.objects.filter(id=id).get()
+            recruit.comments.add(newcomment)
         return redirect('../')
 
 
 def midterm(request):
-    return render(request, 'midterm.html')
+    mid = Mid.objects.all()
+    if(request.user.username):
+        username = User.objects.get(username=request.user.username)
+        login_user = Profile.objects.filter(email=username).get()
+        return render(request, 'midterm.html',{
+            'login_user':login_user,
+            'mid' : mid,
+        })
+    else:
+        return render(request, 'midterm.html',{
+            'mid' : mid
+        })
 
 def midterm_form(request):
-    return render(request, 'midterm_form.html')
+    if request.method == 'POST':
+        title = request.POST['title']
+        team = request.POST['team']
+        leader = request.POST['leader']
+        topic = request.POST['topic']
+        result = request.POST['result']
+        motivation = request.POST['motivation']
+        process = request.POST['process']
+        expectation = request.POST['expectation']
+        if(request.user.username):
+            username = User.objects.get(username=request.user.username)
+        newmid = Mid.objects.create(
+            title = title,
+            writer = username,
+            team = team,
+            leader = leader,
+            topic = topic,
+            result = result,
+            motivation = motivation,
+            process = process,
+            expectation = expectation
+        )
+        return redirect('/midterm/')
 
-def midterm_show(request):
-    return render(request, 'midterm_show.html')
+    else:
+        return render(request, 'midterm_form.html')
+
+def midterm_show(request, id):
+    mid = Mid.objects.get(id=id)
+    if(request.user.username):
+        username = User.objects.get(username=request.user.username)
+        login_user = Profile.objects.filter(email=username).get()
+        return render(request, 'midterm_show.html',{
+            'login_user':login_user,
+            'mid' : mid,
+        })
+    else:
+        return render(request, 'midterm_show.html', {
+            'mid':mid,
+        })
+
+def mid_edit(request, id):
+    if request.method == 'POST':
+        mid = Mid(id=id)
+        title = request.POST['title']
+        mid.title = title
+        mid.save()
+        return redirect('./')
+
+    else:
+        mid = Mid.objects.filter(id=id).get()
+        return render(request, 'midterm_edit.html',{
+            'mid' : mid
+        })

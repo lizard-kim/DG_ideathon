@@ -85,12 +85,12 @@
               </thead>
 
               <tbody>
-                {% for elem in midterm %}
+                {% for elem in mid %}
                 <tr>
                     <td>
                       <a href="{{elem.id}}">
-                      [{{elem.problem_category}}]
-                      [{{elem.solution}}]
+                      [{{elem.topic}}]
+                      [{{elem.result}}]
                       {{elem.title}}
                       </a>
                     </td>
@@ -112,9 +112,11 @@
               </tbody>
             </table>
           </div>
+          {% if user.is_authenticated %}
           <div class="col s12" style="margin-top:15px;">
             <a href="{% url 'midterm_form' %}" class="btn dgist-blue-mid">중간 피드백 작성하기</a>
           </div>
+          {% endif %}
         </div>
 
         <div class="row">

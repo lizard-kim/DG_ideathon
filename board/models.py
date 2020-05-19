@@ -159,3 +159,49 @@ class Comment(models.Model):
     )
     def __str__(self):
         return self.contents
+
+class Mid(models.Model):
+    title = models.CharField(
+        max_length=50,
+    )
+    date = models.DateField(
+        auto_now=True, 
+        auto_now_add=False
+    )
+    team = models.CharField(
+        max_length=50,
+    )
+    leader = models.CharField(
+        max_length=50,
+    )
+    topic = models.CharField(
+        max_length=10,
+    )
+    result = models.CharField(
+        max_length=10,
+    )
+    writer = models.CharField(
+        max_length=50,
+    )
+    motivation = models.TextField(
+        max_length=500,
+        blank=True
+    ) 
+    process = models.TextField(
+        max_length=500,
+        blank=True
+    )
+    expectation = models.TextField(
+        max_length=500,
+        blank=True
+    ) 
+    file = models.TextField(
+        max_length=500,
+    ) 
+    comments = models.ManyToManyField(
+        "Comment",
+        blank=True,
+        related_name="mid_comments"
+    )
+    def __str__(self):
+        return self.title

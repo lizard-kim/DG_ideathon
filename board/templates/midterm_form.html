@@ -69,7 +69,7 @@
     <section id="content">
       <div class="row">
         <div class="container">
-          <form class="col s12" method="POST" action="{% url 'notice_form'%}">
+          <form class="col s12" method="POST" action="{% url 'midterm_form'%}">
             {% csrf_token %}
             <div class="row">
               <h4>중간 피드백 작성하기</h4>
@@ -79,63 +79,64 @@
               </div>
 
               <div class="input-field col l6 s12">
-                <input name="title" id="title" type="text" value="">
-                <label for="title">팀명</label>
+                <input name="team" id="team" type="text" value="">
+                <label for="team">팀명</label>
               </div>
 
               <div class="input-field col l6 s12">
-                <input name="title" id="title" type="text" value="">
-                <label for="title">대표자</label>
+                <input name="leader" id="leader" type="text" value="">
+                <label for="leader">대표자</label>
               </div>
 
               <div class="input-field col l6 s12">
-                <select>
+                <select name="topic">
                   <option value="" disabled selected>과제 분야 선택</option>
-                  <option value="1">경제</option>
-                  <option value="2">교육</option>
-                  <option value="3">의료</option>
-                  <option value="3">디자인</option>
-                  <option value="3">창업</option>
+                  <option value="경제">경제</option>
+                  <option value="교육">교육</option>
+                  <option value="의료">의료</option>
+                  <option value="디자인">디자인</option>
+                  <option value="창업">창업</option>
                 </select>
                 <label>과제 분야</label>
               </div>
 
 
               <div class="input-field col l6 s12">
-                <select>
+                <select name="result">
                   <option value="" disabled selected>문제 해결 유형 선택</option>
-                  <option value="1">BM</option>
-                  <option value="2">UX/UI</option>
-                  <option value="3">S/W</option>
+                  <option value="BM">BM</option>
+                  <option value="UX/UI">UX/UI</option>
+                  <option value="SW">SW</option>
                 </select>
                 <label>문제 해결 유형</label>
               </div>
 
-
-
               <div class="input-field col s12">
-                <textarea style="height: 6rem;"name="contents" id="textarea1" class="materialize-textarea" value=""  data-length="250" placeholder="# 어떤 경로로 아이디어를 제안하게 되었는지, 우리 사회는 그 아이디어가 정말로 필요한지 제시"></textarea>
+                <textarea style="height: 6rem;" name="motivation" id="textarea1" class="materialize-textarea" value=""  data-length="500" placeholder="# 어떤 경로로 아이디어를 제안하게 되었는지, 우리 사회는 그 아이디어가 정말로 필요한지 제시"></textarea>
                 <label for="textarea1">아이디어 고안 동기</label>
               </div>
 
               <div class="input-field col s12">
-                <textarea style="height: 12rem;"name="contents" id="textarea1" class="materialize-textarea" value=""  data-length="250" placeholder="# 1. 비즈니스모델 캔버스: BM 캔버스 요약
+                <textarea style="height: 12rem;"name="process" id="textarea1" class="materialize-textarea" value=""  data-length="500" placeholder="# 1. 비즈니스모델 캔버스: BM 캔버스 요약
 # 2. UI/UX 디자인: 현재 구상하는 디자인에 대한 간단한 설명, 디자인 계획
 # 3. SW 설계: 현재 구상하는 프로그램에 대한 간단한 설명, 프로그램 개발 계획"></textarea>
                 <label for="textarea1">아이디어 실현과정</label>
               </div>
 
               <div class="input-field col s12">
-                <textarea style="height: 6rem;"name="contents" id="textarea1" class="materialize-textarea" value=""  data-length="250" placeholder="# 이 아이디어가 성공적으로 세상에 나왔을 때, 우리 사회는 어떻게 변화할지 미래 모습을 제시"></textarea>
+                <textarea style="height: 6rem;"name="expectation" id="textarea1" class="materialize-textarea" value=""  data-length="500" placeholder="# 이 아이디어가 성공적으로 세상에 나왔을 때, 우리 사회는 어떻게 변화할지 미래 모습을 제시"></textarea>
                 <label for="textarea1">기대 효과</label>
               </div>
-
-
+              <div class="input-field col s12">
+                <textarea style="height: 3rem;"name="file" id="textarea1" class="materialize-textarea" value=""  data-length="250" placeholder="# 중간 산출물 양식 구글드라이브 공유 링크를 올려주세요"></textarea>
+                <label for="textarea1">중간 산출물 양식 공유 링크</label>
+              </div>
               <div class="input-field col s12">
                 <button class="dgist-blue-mid waves-effect waves-light btn" type="submit">제출하기</button>
               </div>
             </div>
           </form>
+
         </div>
       </div>
     </section>

@@ -38,7 +38,8 @@ urlpatterns = [
 
     path('midterm/', midterm, name='midterm'),
     path('midterm_form/', midterm_form, name='midterm_form'),
-    path('midterm/1', midterm_show, name='midterm_show'),
-
-
+    path('midterm/<int:id>/', midterm_show, name='midterm_show'),
+    path('midterm/<int:id>/comment_form/', comment_form, name='mid_comment_form'),
+    #path('midterm/<int:id>/delete', mid_delete, name='mid_delete'),
+    path('midterm/<int:id>/edit', mid_edit, name='mid_edit'),
 ]
