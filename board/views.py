@@ -372,6 +372,7 @@ def midterm_form(request):
         motivation = request.POST['motivation']
         process = request.POST['process']
         expectation = request.POST['expectation']
+        file = request.POST['file']
         if(request.user.username):
             username = User.objects.get(username=request.user.username)
         newmid = Mid.objects.create(
@@ -383,7 +384,8 @@ def midterm_form(request):
             result = result,
             motivation = motivation,
             process = process,
-            expectation = expectation
+            expectation = expectation,
+            file = file,
         )
         return redirect('/midterm/')
 
@@ -408,7 +410,23 @@ def mid_edit(request, id):
     if request.method == 'POST':
         mid = Mid(id=id)
         title = request.POST['title']
+        team = request.POST['team']
+        leader = request.POST['leader']
+        topic = request.POST['topic']
+        result = request.POST['result']
+        motivation = request.POST['motivation']
+        process = request.POST['process']
+        expectation = request.POST['expectation']
+        file = request.POST['file']
         mid.title = title
+        mid.team = team
+        mid.leader = leader
+        mid.topic = topic
+        mid.result = result
+        mid.motivation = motivation
+        mid.process = process
+        mid.expectation = expectation
+        mid.file = file
         mid.save()
         return redirect('./')
 
