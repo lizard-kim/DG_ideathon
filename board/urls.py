@@ -41,5 +41,5 @@ urlpatterns = [
     path('midterm/<int:id>/', midterm_show, name='midterm_show'),
     path('midterm/<int:id>/comment_form/', comment_form, name='mid_comment_form'),
     #path('midterm/<int:id>/delete', mid_delete, name='mid_delete'),
-    path('midterm/<int:id>/edit', mid_edit, name='mid_edit'),
+    #path('midterm/<int:id>/edit', mid_edit, name='mid_edit'),
 ]
