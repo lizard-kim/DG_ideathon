@@ -204,4 +204,4 @@ class Mid(models.Model):
         related_name="mid_comments"
     )
     def __str__(self):
-        return self.title
+        return self.team
