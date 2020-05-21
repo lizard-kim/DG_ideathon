@@ -7,6 +7,24 @@ from .models import *
 def main(request):
     return render(request, 'main.html')
 
+def test(request):
+    return render(request, 'test.html')
+
+def test_form(request):
+    if request.method == 'POST':
+        title = request.POST['title']
+        contents = request.POST['contents']
+        attach = request.FILES.get('attach')
+
+        newtest = Test.objects.create(
+            title = title,
+            contents = contents,
+            attach = attach,
+        )
+        return redirect('/test/')
+
+    else:
+        return render(request, 'test_form.html')
 def notice(request):
     notice = Notice.objects.all()
     if(request.user.username):

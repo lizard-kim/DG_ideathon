@@ -1,4 +1,6 @@
 from django.urls import path
+from django.conf import settings
+from django.conf.urls.static import static
 from .views import *
 
 urlpatterns = [
@@ -42,4 +44,8 @@ urlpatterns = [
     path('midterm/<int:id>/comment_form/', comment_form, name='mid_comment_form'),
     #path('midterm/<int:id>/delete', mid_delete, name='mid_delete'),
     #path('midterm/<int:id>/edit', mid_edit, name='mid_edit'),
+
+    path('test/', test, name='test'),
+    path('test_form/', test_form, name='test_form'),
 ]
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
