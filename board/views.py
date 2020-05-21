@@ -435,3 +435,12 @@ def mid_edit(request, id):
         return render(request, 'midterm_edit.html',{
             'mid' : mid
         })
+
+def final(request):
+    return render(request, 'final.html')
+def final_show(request):
+    return render(request, 'final_show.html')
+def final_form(request):
+    return render(request, 'final_form.html')
+def poll(request):
+    return render(request, 'poll.html')

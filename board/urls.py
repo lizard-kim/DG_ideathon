@@ -42,4 +42,12 @@ urlpatterns = [
     path('midterm/<int:id>/comment_form/', comment_form, name='mid_comment_form'),
     #path('midterm/<int:id>/delete', mid_delete, name='mid_delete'),
     #path('midterm/<int:id>/edit', mid_edit, name='mid_edit'),
+
+
+    path('final/', final, name='final'),
+    path('final_form/', final_form, name='final_form'),
+    path('final/<int:id>/', final_show, name='final_show'),
+
+    path('poll/', poll, name='poll')
+
 ]
