@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!--Import Google Icon Font and fonts-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Do+Hyeon&amp;display=swap" rel="stylesheet">
+
+    <style>
+      body {
+        font:400 16px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+        color:#111;
+        background-color:#fdfdfd;
+        -webkit-text-size-adjust:100%;
+        -webkit-font-feature-settings:"kern" 1;
+        -moz-font-feature-settings:"kern" 1;
+        -o-font-feature-settings:"kern" 1;
+        font-feature-settings:"kern" 1;
+        font-kerning:normal;
+        display:flex;
+        min-height:100vh;
+        flex-direction:column
+      }
+      .logo {
+        font-family: 'Do Hyeon', sans-serif;
+      }
+      .dgist-blue-dark {
+        background-color: #001752 !important;
+      }
+      .dgist-blue-mid {
+        background-color: #002991 !important;
+      }
+      .logout{
+        background-color: #001752 !important;
+        border: none;
+        color: white;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 14px;
+      }
+      p {
+        word-break: break-all;
+        white-space: pre-wrap;
+       }
+    </style>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>2020 대구 경북 아이디어톤</title>
+
+  </head>
+
+  <body>
+
+    <style media="screen">
+      .carousel{
+        height: 64px !important;
+      }
+    </style>
+
+    <header class="hide-on-small-only dgist-blue-dark" style="height: 128px;">
+      <a href="{% url 'main'%}"><h2 class="center white-text logo">2020 대구 경북 아이디어톤</h2></a>
+    </header>
+    <style>
+
+    </style>
+
+    <!-- Navbar -->
+    {% include 'nav.html' %}
+
+    <section id="content">
+      <div class="row">
+        <div class="container">
+          <div class="col s12">
+            <h4>{{mid.title}}</h4>
+            <p class="grey-text">{{mid.team}}, {{mid.leader}}, {{mid.date}}. </p>
+
+            <div class="divider"></div>
+            <p style="font-weight: 700;">아이디어 고안 동기</p>
+            <p>{{mid.motivation}}
+            </p>
+            <p style="font-weight: 700;">아이디어 실현 과정</p>
+            <p>{{mid.process}}
+            </p>
+            <p style="font-weight: 700;">아이디어 기대 효과</p>
+            <p>{{mid.expectation}}
+            </p>
+            <p style="font-weight: 700;">최종 결과물 동영상 링크</p>
+            <p>{{mid.file}}
+            </p>
+          </div>
+
+          <div class="col s12">
+            <table class="striped">
+              <thead>
+                <tr>
+                    <th>댓글</th>
+                    <th class="right">작성자</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                {% for comment in mid.comments.all %}
+                <tr>
+                    <td>
+                      {{ comment.contents }}
+                    </td>
+                  <td class="right">{{ comment.writer }}</td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+
+          <form class="col s12" method="POST" action="{% url 'mid_comment_form' mid.id %}">
+            {% csrf_token %}
+            <div class="row">
+              <div class="input-field col s12">
+                <textarea name="contents" id="textarea1" class="materialize-textarea" value=""></textarea>
+                <label for="textarea1">댓글</label>
+              </div>
+              <div class="input-field col s12">
+                <button class="dgist-blue-mid waves-effect waves-light btn" type="submit">댓글 달기</button>
+              </div>
+            </div>
+          </form>
+
+        <div id="des" class="modal">
+          <div class="modal-content">
+
+            <div class="input-field col s12">
+              <textarea style="height: 6rem;"name="" id="textarea1" class="materialize-textarea" value=""  data-length="250" placeholder=""></textarea>
+              <label for="textarea1">피드백 내용</label>
+            </div>
+
+            <div class="input-field col s12">
+              <button class="dgist-blue-mid waves-effect waves-light btn" type="submit">제출하기</button>
+            </div>
+            </p>
+          </div>
+        </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <script type="text/javascript">
+      M.AutoInit();
+    </script>
+
+  </body>
+  {% include 'footer.html' %}
+
+</html>
