@@ -437,10 +437,98 @@ def mid_edit(request, id):
         })
 
 def final(request):
-    return render(request, 'final.html')
-def final_show(request):
-    return render(request, 'final_show.html')
+    fin = Fin.objects.all()
+    if(request.user.username):
+        username = User.objects.get(username=request.user.username)
+        login_user = Profile.objects.filter(email=username).get()
+        return render(request, 'final.html',{
+            'login_user':login_user,
+            'fin' : fin,
+        })
+    else:
+        return render(request, 'final.html',{
+            'fin' : fin
+        })
+
+def final_show(request, id):
+    fin = Fin.objects.get(id=id)
+    if(request.user.username):
+        username = User.objects.get(username=request.user.username)
+        login_user = Profile.objects.filter(email=username).get()
+        return render(request, 'final_show.html',{
+            'login_user':login_user,
+            'fin' : fin,
+        })
+    else:
+        return render(request, 'midterm_show.html', {
+            'fin':fin,
+        })
+
 def final_form(request):
-    return render(request, 'final_form.html')
+    if request.method == 'POST':
+        title = request.POST['title']
+        team = request.POST['team']
+        leader = request.POST['leader']
+        topic = request.POST['topic']
+        result = request.POST['result']
+        motivation = request.POST['motivation']
+        process = request.POST['process']
+        expectation = request.POST['expectation']
+        file = request.POST['file']
+        video = request.POST['video']
+        if(request.user.username):
+            username = User.objects.get(username=request.user.username)
+        newfin = Fin.objects.create(
+            title = title,
+            writer = username,
+            team = team,
+            leader = leader,
+            topic = topic,
+            result = result,
+            motivation = motivation,
+            process = process,
+            expectation = expectation,
+            file = file,
+            video = video,
+        )
+        return redirect('/final/')
+
+    else:
+        return render(request, 'final_form.html')
+
+
+def fin_edit(request, id):
+    if request.method == 'POST':
+        fin = Fin(id=id)
+        title = request.POST['title']
+        team = request.POST['team']
+        leader = request.POST['leader']
+        topic = request.POST['topic']
+        result = request.POST['result']
+        motivation = request.POST['motivation']
+        process = request.POST['process']
+        expectation = request.POST['expectation']
+        file = request.POST['file']
+        video = request.POST['video']
+        fin.title = title
+        fin.team = team
+        fin.leader = leader
+        fin.topic = topic
+        fin.result = result
+        fin.motivation = motivation
+        fin.process = process
+        fin.expectation = expectation
+        fin.file = file
+        fin.video = video
+        fin.save()
+        return redirect('./')
+
+    else:
+        fin = Fin.objects.filter(id=id).get()
+        return render(request, 'final_edit.html',{
+            'fin' : fin
+        })
+        
+
 def poll(request):
     return render(request, 'poll.html')

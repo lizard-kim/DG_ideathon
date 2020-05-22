@@ -69,7 +69,7 @@
     <section id="content">
       <div class="row">
         <div class="container">
-          <form class="col s12" method="POST" action="">
+          <form class="col s12" method="POST" action="{% url 'final_form'%}">
             {% csrf_token %}
             <div class="row">
               <h4>최종 결과물 작성하기</h4>
@@ -127,15 +127,13 @@
                 <textarea style="height: 6rem;"name="expectation" id="textarea1" class="materialize-textarea" value=""  data-length="500" placeholder="# 이 아이디어가 성공적으로 세상에 나왔을 때, 우리 사회는 어떻게 변화할지 미래 모습을 제시"></textarea>
                 <label for="textarea1">기대 효과</label>
               </div>
-
-              <div class="file-field input-field col s12">
-                <div class="btn dgist-blue-mid">
-                  <span>동영상 파일</span>
-                  <input type="file">
-                </div>
-                <div class="file-path-wrapper">
-                  <input class="file-path validate" type="text">
-                </div>
+              <div class="input-field col s12">
+                <textarea style="height: 3rem;"name="file" id="textarea1" class="materialize-textarea" value=""  data-length="250" placeholder="# 최종결과물 양식 구글드라이브 공유 링크를 올려주세요"></textarea>
+                <label for="textarea1">최종 결과물 양식 공유 링크</label>
+              </div>
+              <div class="input-field col s12">
+                <textarea style="height: 3rem;"name="video" id="textarea1" class="materialize-textarea" value=""  data-length="250" placeholder="# 최종 결과물 발표영상 구글드라이브 공유 링크를 올려주세요"></textarea>
+                <label for="textarea1">최종 결과물 발표영상 공유 링크</label>
               </div>
 
               <div class="input-field col s12">

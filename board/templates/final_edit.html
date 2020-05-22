@@ -1,22 +1,22 @@
 {% extends 'edit_base.html' %}
 
 {% block content %}
-<form class="col s12" method="POST" action="{% url 'mid_edit' mid.id %}">
+<form class="col s12" method="POST" action="{% url 'fin_edit' fin.id %}">
   {% csrf_token %}
   <div class="row">
     <h4>최종 결과물 수정하기</h4>
     <div class="input-field col s12">
-      <input name="title" id="title" type="text" value="{{mid.title}}">
+      <input name="title" id="title" type="text" value="{{fin.title}}">
       <label for="title">아이디어 제목</label>
     </div>
 
     <div class="input-field col l6 s12">
-      <input name="team" id="team" type="text" value="{{mid.team}}">
+      <input name="team" id="team" type="text" value="{{fin.team}}">
       <label for="team">팀명</label>
     </div>
 
     <div class="input-field col l6 s12">
-      <input name="leader" id="leader" type="text" value="{{mid.leader}}">
+      <input name="leader" id="leader" type="text" value="{{fin.leader}}">
       <label for="leader">대표자</label>
     </div>
 
@@ -44,24 +44,28 @@
     </div>
 
     <div class="input-field col s12">
-      <textarea style="height: 6rem;" name="motivation" id="textarea1" class="materialize-textarea" value=""  data-length="500" placeholder="# 어떤 경로로 아이디어를 제안하게 되었는지, 우리 사회는 그 아이디어가 정말로 필요한지 제시">{{mid.motivation}}</textarea>
+      <textarea style="height: 6rem;" name="motivation" id="textarea1" class="materialize-textarea" value=""  data-length="500" placeholder="# 어떤 경로로 아이디어를 제안하게 되었는지, 우리 사회는 그 아이디어가 정말로 필요한지 제시">{{fin.motivation}}</textarea>
       <label for="textarea1">아이디어 고안 동기</label>
     </div>
 
     <div class="input-field col s12">
       <textarea style="height: 12rem;"name="process" id="textarea1" class="materialize-textarea" value=""  data-length="500" placeholder="# 1. 비즈니스모델 캔버스: BM 캔버스 요약
 # 2. UI/UX 디자인: 현재 구상하는 디자인에 대한 간단한 설명, 디자인 계획
-# 3. SW 설계: 현재 구상하는 프로그램에 대한 간단한 설명, 프로그램 개발 계획"> {{mid.process}} </textarea>
+# 3. SW 설계: 현재 구상하는 프로그램에 대한 간단한 설명, 프로그램 개발 계획"> {{fin.process}} </textarea>
       <label for="textarea1">아이디어 실현과정</label>
     </div>
 
     <div class="input-field col s12">
-      <textarea style="height: 6rem;"name="expectation" id="textarea1" class="materialize-textarea" value=""  data-length="500" placeholder="# 이 아이디어가 성공적으로 세상에 나왔을 때, 우리 사회는 어떻게 변화할지 미래 모습을 제시">{{mid.expectation}}</textarea>
+      <textarea style="height: 6rem;"name="expectation" id="textarea1" class="materialize-textarea" value=""  data-length="500" placeholder="# 이 아이디어가 성공적으로 세상에 나왔을 때, 우리 사회는 어떻게 변화할지 미래 모습을 제시">{{fin.expectation}}</textarea>
       <label for="textarea1">기대 효과</label>
     </div>
     <div class="input-field col s12">
-      <textarea style="height: 3rem;"name="file" id="textarea1" class="materialize-textarea" value=""  data-length="250" placeholder="# 중간 산출물 양식 구글드라이브 공유 링크를 올려주세요">{{mid.file}}</textarea>
-      <label for="textarea1">중간 산출물 양식 공유 링크</label>
+      <textarea style="height: 3rem;"name="file" id="textarea1" class="materialize-textarea" value=""  data-length="250" placeholder="# 중간 산출물 양식 구글드라이브 공유 링크를 올려주세요">{{fin.file}}</textarea>
+      <label for="textarea1">최종 결과물 양식 공유 링크</label>
+    </div>
+    <div class="input-field col s12">
+      <textarea style="height: 3rem;"name="video" id="textarea1" class="materialize-textarea" value=""  data-length="250" placeholder="# 중간 산출물 양식 구글드라이브 공유 링크를 올려주세요">{{fin.video}}</textarea>
+      <label for="textarea1">최종 결과물 발표 영상 공유 링크</label>
     </div>
     <div class="input-field col s12">
       <button class="dgist-blue-mid waves-effect waves-light btn" type="submit">저장하기</button>

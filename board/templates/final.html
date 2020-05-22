@@ -85,7 +85,7 @@
               </thead>
 
               <tbody>
-                {% for elem in mid %}
+                {% for elem in fin %}
                 <tr>
                     <td>
                       <a href="{{elem.id}}">
@@ -113,7 +113,11 @@
             </table>
           </div>
         </div>
-
+          {% if user.is_authenticated %}
+          <div class="col s12" style="margin-top:15px;">
+            <a href="{% url 'final_form' %}" class="btn dgist-blue-mid">최종 결과물 작성하기</a>
+          </div>
+          {% endif %}
         <div class="row">
           <div class="container">
 
