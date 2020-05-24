@@ -250,3 +250,54 @@ class Fin(models.Model):
     
     def __str__(self):
         return self.team
+
+class BM_Voter(models.Model):
+    name = models.CharField(
+        max_length=50,
+    )
+    date = models.DateField(
+        auto_now=True, 
+        auto_now_add=False
+    )
+    address = models.TextField(
+        max_length=100,
+    )
+    phone = models.CharField(
+        max_length=50,
+    )
+    accept = models.BooleanField()
+    idea_id = models.IntegerField()
+
+class UX_Voter(models.Model):
+    name = models.CharField(
+        max_length=50,
+    )
+    date = models.DateField(
+        auto_now=True, 
+        auto_now_add=False
+    )
+    address = models.TextField(
+        max_length=100,
+    )
+    phone = models.CharField(
+        max_length=50,
+    )
+    accept = models.BooleanField()
+    idea_id = models.IntegerField()
+
+class SW_Voter(models.Model):
+    name = models.CharField(
+        max_length=50,
+    )
+    date = models.DateField(
+        auto_now=True, 
+        auto_now_add=False
+    )
+    address = models.TextField(
+        max_length=100,
+    )
+    phone = models.CharField(
+        max_length=50,
+    )
+    accept = models.BooleanField()
+    idea_id = models.IntegerField()

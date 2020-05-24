@@ -531,4 +531,76 @@ def fin_edit(request, id):
         
 
 def poll(request):
-    return render(request, 'poll.html')
+    if request.method == 'POST':
+        name = request.POST['name']
+        address = request.POST['address']
+        phone = request.POST['phone']
+        accept = request.POST['accept']
+        idea_id = request.POST['idea_id']
+        field = request.POST['field']
+
+        if field == "bm":
+            same = 0 # no
+            all_voter = BM_Voter.objects.all()
+            for voter in all_voter:
+                if(voter.phone == phone):
+                    same = 1
+                    break
+                else:
+                    pass
+            if same:
+                return redirect('./')
+            else:
+                new_bmvoter = BM_Voter.objects.create(
+                    name = name,
+                    address = address,
+                    phone = phone,
+                    accept = accept,
+                    idea_id = idea_id,
+                )
+        elif field == "ux":
+            same = 0 # no
+            all_voter = UX_Voter.objects.all()
+            for voter in all_voter:
+                if(voter.phone == phone):
+                    same = 1
+                    break
+                else:
+                    pass
+            if same:
+                return redirect('./')
+            else:
+                new_uxvoter = UX_Voter.objects.create(
+                    name = name,
+                    address = address,
+                    phone = phone,
+                    accept = accept,
+                    idea_id = idea_id,
+                )
+        elif field == "sw":
+            same = 0 # no
+            all_voter = SW_Voter.objects.all()
+            for voter in all_voter:
+                if(voter.phone == phone):
+                    same = 1
+                    break
+                else:
+                    pass
+            if same:
+                return redirect('./')
+            else:
+                new_swvoter = SW_Voter.objects.create(
+                    name = name,
+                    address = address,
+                    phone = phone,
+                    accept = accept,
+                    idea_id = idea_id,
+                )
+        return redirect('./')
+
+    else:
+        fin = Fin.objects.all()
+        return render(request, 'poll.html',{
+            'fin' : fin
+        })
+
