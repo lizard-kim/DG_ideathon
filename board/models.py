@@ -230,15 +230,15 @@ class Fin(models.Model):
         max_length=50,
     )
     motivation = models.TextField(
-        max_length=500,
+        max_length=1500,
         blank=True
     ) 
     process = models.TextField(
-        max_length=500,
+        max_length=1500,
         blank=True
     )
     expectation = models.TextField(
-        max_length=500,
+        max_length=1500,
         blank=True
     ) 
     file = models.TextField(
