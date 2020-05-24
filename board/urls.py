@@ -49,6 +49,6 @@ urlpatterns = [
     path('final/<int:id>/', final_show, name='final_show'),
     #path('final/<int:id>/edit', fin_edit, name='fin_edit'),
 
-    #path('poll/', poll, name='poll')
+    path('poll/', poll, name='poll')
 
 ]
