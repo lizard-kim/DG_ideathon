@@ -249,7 +249,7 @@ class Fin(models.Model):
     )
     
     def __str__(self):
-        return self.team
+        return self.id
 
 class BM_Voter(models.Model):
     name = models.CharField(
