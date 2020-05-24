@@ -21,6 +21,9 @@
                 <a class="page-link white-text" href="{% url 'final'%}" style="display: inline-block;">최종 결과물</a>
             </li>
             <li style="display: inline; float:none;">
+                <a class="page-link white-text" href="{% url 'poll'%}" style="display: inline-block;">시민 투표</a>
+            </li>
+            <li style="display: inline; float:none;">
             <a class="page-link white-text" href="{% url 'qna' %}" style="display: inline-block;">QnA</a>
             </li>
             {% if user.is_authenticated %}
@@ -60,6 +63,12 @@
     </li>
     <li>
         <a class="page-link white-text" href="{% url 'midterm'%}" style="display: inline-block;">중간 피드백</a>
+    </li>
+    <li>
+        <a class="page-link white-text" href="{% url 'final'%}" style="display: inline-block;">최종 결과물</a>
+    </li>
+    <li>
+        <a class="page-link white-text" href="{% url 'poll'%}" style="display: inline-block;">시민 투표</a>
     </li>
     <li>
         <a class="page-link white-text" href="{% url 'qna' %}" style="display: inline-block;">QnA</a>
