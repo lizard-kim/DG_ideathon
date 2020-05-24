@@ -58,6 +58,9 @@
            -moz-column-count: 3;
            column-count: 3;
         }
+        .card {
+
+        }
       }
 
     </style>
@@ -102,11 +105,11 @@
       <div class="container">
 
         <div class="row">
+          <h4 class="center logo">변화에 적응하는 BM</h4>
           <div class="col s12 cards-container">
-            <h4 class="center logo">변화에 적응하는 BM</h4>
             {% for elem in fin %}
             {% if elem.result == "BM" %}
-            <div class="card sticky-action">
+            <div class="card sticky-action" style="width:100%">
                 <div class="card-content">
                   <p class="center" style="font-weight:900;">{{ elem.title }} {{ elem.id }}</p>
                   <div class="divider" style="margin:5px;"></div>
@@ -193,11 +196,11 @@
         </div>
 
         <div class="row">
+          <h4 class="center logo">차별없는 UXUI</h4>
           <div class="col s12 cards-container">
-            <h4 class="center logo">차별없는 UXUI</h4>
             {% for elem in fin %}
             {% if elem.result == "UX/UI" %}
-            <div class="card sticky-action">
+            <div class="card sticky-action" style="width:100%">
                 <div class="card-content">
                   <p class="center" style="font-weight:900;">{{ elem.title }}  {{ elem.id }}</p>
                   <div class="divider" style="margin:5px;"></div>
@@ -284,11 +287,11 @@
         </div>
 
         <div class="row">
+          <h4 class="center logo">문제 해결을 위한 SW</h4>
           <div class="col s12 cards-container">
-            <h4 class="center logo">문제 해결을 위한 SW</h4>
             {% for elem in fin %}
             {% if elem.result == "SW" %}
-            <div class="card sticky-action">
+            <div class="card sticky-action" style="width:100%">
                 <div class="card-content">
                   <p class="center" style="font-weight:900;">{{ elem.title }}  {{ elem.id }}</p>
                   <div class="divider" style="margin:5px;"></div>
