@@ -8,7 +8,6 @@
 
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>2020 대구 경북 아이디어톤</title>
@@ -28,6 +27,38 @@
         background-color: #000000;
       }
 
+       .text-center {
+      	 text-align: center;
+      }
+
+      .cards-container {
+         column-break-inside: avoid;
+      }
+       .cards-container .card {
+         display: inline-block;
+         overflow: visible;
+      }
+       @media only screen and (max-width : 600px) {
+         .cards-container {
+           -webkit-column-count: 1;
+           -moz-column-count: 1;
+           column-count: 1;
+        }
+      }
+       @media only screen and (min-width : 601px) {
+         .cards-container {
+           -webkit-column-count: 2;
+           -moz-column-count: 2;
+           column-count: 2;
+        }
+      }
+       @media only screen and (min-width : 993px) {
+         .cards-container {
+           -webkit-column-count: 3;
+           -moz-column-count: 3;
+           column-count: 3;
+        }
+      }
 
     </style>
   </head>
@@ -69,11 +100,12 @@
     <!-- </div> -->
     <div class="section" style="background-color:#86bcf2ad;">
       <div class="container">
+
         <div class="row">
-          <h4 class="center logo">변화에 적응하는 BM</h4>
-          {% for elem in fin %}
-          {% if elem.result == "BM" %}
-          <div class="col s12 m4">
+          <div class="col s12 cards-container">
+            <h4 class="center logo">변화에 적응하는 BM</h4>
+            {% for elem in fin %}
+            {% if elem.result == "BM" %}
             <div class="card sticky-action">
                 <div class="card-content">
                   <p class="center" style="font-weight:900;">{{ elem.title }}</p>
@@ -116,7 +148,7 @@
                   <div class="input-field col s12">
                     <input name="phone" id="leader" type="text" value="">
                     <label for="phone">전화번호</label>
-                  </div>     
+                  </div>
                   <div class="input-field col s12">
                     <input name="idea_id" id="leader" type="text" value="{{elem.id}}">
                     <label for="idea_id">{{elem.id}}</label>
@@ -124,26 +156,26 @@
                   <div class="input-field col s12">
                     <input name="field" id="leader" type="text" value="bm">
                     <label for="address">field</label>
-                  </div>           
+                  </div>
                   <p>
-개인정보 수집 약관
-<br/>
-------
-<br/>
-1. 수집 항목
- - 필수 항목: 이름, 연락처, 주소
-<br/>
-2. 이용 목적
-- 투표 참여자 관리(중복 투표 예방), 경품 전달 
-<br/>
-3. 보유기간 및 파기
-- 투표가 마무리 되는 시점(05월 24일~ 05월 27일)에서 투표자의 개인 정보를 전부 파기하는 것을 원칙으로 하나, 경품 당첨자에 한하여 투표 마감 후 개인 정보 이용 목적이 달성될 때 까지 보유
-- 정보의 주체가 개인정 삭제를 요청할 경우, 보유기간과 상관없이 검토 후 파기 처리
-- 개인정보 파기 시 경품 추첨에 불이익이 있을 수 있음 
-<br/>
-4. 미동의 시 불이익
-- 해당 개인정보 수집 및 이용에 대한 동의를 거부할 권리가 있으나 이를 거부할 경우 투표 및 경품 추첨에서 참여가 제한됨
-<br/>
+            개인정보 수집 약관
+            <br/>
+            ------
+            <br/>
+            1. 수집 항목
+            - 필수 항목: 이름, 연락처, 주소
+            <br/>
+            2. 이용 목적
+            - 투표 참여자 관리(중복 투표 예방), 경품 전달
+            <br/>
+            3. 보유기간 및 파기
+            - 투표가 마무리 되는 시점(05월 24일~ 05월 27일)에서 투표자의 개인 정보를 전부 파기하는 것을 원칙으로 하나, 경품 당첨자에 한하여 투표 마감 후 개인 정보 이용 목적이 달성될 때 까지 보유
+            - 정보의 주체가 개인정 삭제를 요청할 경우, 보유기간과 상관없이 검토 후 파기 처리
+            - 개인정보 파기 시 경품 추첨에 불이익이 있을 수 있음
+            <br/>
+            4. 미동의 시 불이익
+            - 해당 개인정보 수집 및 이용에 대한 동의를 거부할 권리가 있으나 이를 거부할 경우 투표 및 경품 추첨에서 참여가 제한됨
+            <br/>
                     <label>
                       <input name="accept" type="checkbox" value="True"/>
                       <span>약관에 동의</span>
@@ -155,89 +187,16 @@
                 </div>
               </form>
             </div>
+            {% endif %}
+            {% endfor %}
           </div>
-          {% endif %}
-          {% endfor %}
         </div>
 
         <div class="row">
-          <h4 class="center logo">문제 해결을 위한 SW</h4>
-          {% for elem in fin %}
-          {% if elem.result == "SW" %}
-          <div class="col s12 m4">
-            <div class="card sticky-action">
-                <div class="card-content">
-                  <p class="center" style="font-weight:900;">{{ elem.title }} {{elem.id}}</p>
-                  <div class="divider" style="margin:5px;"></div>
-                  <p class="right grey-text">{{ elem.team }}</p></br>
-                  <p>아이디어 요약</p>
-                </div>
-                <div class="card-action" style="padding-bottom:0px;">
-                  <div class="row" style="margin-bottom:0px;">
-                    <div class="col s12 l6" style="margin-bottom:16px;">
-                      <a class="modal-trigger waves-effect waves-light left-align btn dgist-blue-mid" style="width:100%;"href="#info{{elem.id}}">더 알아보기</a>
-                    </div>
-                    <div class="col s12 l6" style="margin-bottom:16px;">
-                      <a class="modal-trigger waves-effect waves-light btn dgist-blue-dark"  style="width:100%;"href="#vote{{elem.id}}">투표하기</a>
-                    </div>
-                  </div>
-                </div>
-            </div>
-
-            <div id="info{{elem.id}}" class="modal">
-              <div class="modal-content">
-                <video class="responsive-video" controls style="width:100%;">
-                  <source src="../static/video/{{elem.id}}.mp4" type="video/mp4">
-                </video>
-              </div>
-            </div>
-
-            <div id="vote{{elem.id}}" class="modal">
-              <form method="POST" action="{% url 'poll'%}">
-                {% csrf_token %}
-                <div class="modal-content">=
-                  <div class="input-field col s12">
-                    <input name="name" id="leader" type="text" value="">
-                    <label for="name">성함</label>
-                  </div>
-                  <div class="input-field col s12">
-                    <input name="address" id="leader" type="text" value="">
-                    <label for="address">주소</label>
-                  </div>
-                  <div class="input-field col s12">
-                    <input name="phone" id="leader" type="text" value="">
-                    <label for="phone">전화번호</label>
-                  </div>     
-                  <div class="input-field col s12">
-                    <input name="idea_id" id="leader" type="text" value="{{elem.id}}">
-                    <label for="idea_id">{{elem.id}}</label>
-                  </div>
-                  <div class="input-field col s12">
-                    <input name="field" id="leader" type="text" value="sw">
-                    <label for="address">field</label>
-                  </div>           
-                  <p>
-                    <label>
-                      <input name="accept" type="checkbox" value="True"/>
-                      <span>약관에 동의</span>
-                    </label>
-                  </p>
-                  <div class="input-field col s12">
-                    <button class="dgist-blue-mid waves-effect waves-light btn" type="submit">투표하기</button>
-                  </div>
-                </div>
-              </form>
-            </div>
-          </div>
-          {% endif %}        
-          {% endfor %}
-        </div>
-
-        <div class="row">
-          <h4 class="center logo">차별없는 UXUI</h4>
-          {% for elem in fin %}
-          {% if elem.result == "UX/UI" %}
-          <div class="col s12 m4">
+          <div class="col s12 cards-container">
+            <h4 class="center logo">차별없는 UXUI</h4>
+            {% for elem in fin %}
+            {% if elem.result == "UX/UI" %}
             <div class="card sticky-action">
                 <div class="card-content">
                   <p class="center" style="font-weight:900;">{{ elem.title }}</p>
@@ -280,16 +239,34 @@
                   <div class="input-field col s12">
                     <input name="phone" id="leader" type="text" value="">
                     <label for="phone">전화번호</label>
-                  </div>     
+                  </div>
                   <div class="input-field col s12">
                     <input name="idea_id" id="leader" type="text" value="{{elem.id}}">
                     <label for="idea_id">{{elem.id}}</label>
                   </div>
                   <div class="input-field col s12">
-                    <input name="field" id="leader" type="text" value="ux">
+                    <input name="field" id="leader" type="text" value="bm">
                     <label for="address">field</label>
-                  </div>           
+                  </div>
                   <p>
+            개인정보 수집 약관
+            <br/>
+            ------
+            <br/>
+            1. 수집 항목
+            - 필수 항목: 이름, 연락처, 주소
+            <br/>
+            2. 이용 목적
+            - 투표 참여자 관리(중복 투표 예방), 경품 전달
+            <br/>
+            3. 보유기간 및 파기
+            - 투표가 마무리 되는 시점(05월 24일~ 05월 27일)에서 투표자의 개인 정보를 전부 파기하는 것을 원칙으로 하나, 경품 당첨자에 한하여 투표 마감 후 개인 정보 이용 목적이 달성될 때 까지 보유
+            - 정보의 주체가 개인정 삭제를 요청할 경우, 보유기간과 상관없이 검토 후 파기 처리
+            - 개인정보 파기 시 경품 추첨에 불이익이 있을 수 있음
+            <br/>
+            4. 미동의 시 불이익
+            - 해당 개인정보 수집 및 이용에 대한 동의를 거부할 권리가 있으나 이를 거부할 경우 투표 및 경품 추첨에서 참여가 제한됨
+            <br/>
                     <label>
                       <input name="accept" type="checkbox" value="True"/>
                       <span>약관에 동의</span>
@@ -301,10 +278,102 @@
                 </div>
               </form>
             </div>
+            {% endif %}
+            {% endfor %}
           </div>
-          {% endif %} 
-          {% endfor %}
         </div>
+
+        <div class="row">
+          <div class="col s12 cards-container">
+            <h4 class="center logo">문제 해결을 위한 SW</h4>
+            {% for elem in fin %}
+            {% if elem.result == "SW" %}
+            <div class="card sticky-action">
+                <div class="card-content">
+                  <p class="center" style="font-weight:900;">{{ elem.title }}</p>
+                  <div class="divider" style="margin:5px;"></div>
+                  <p class="right grey-text">{{ elem.team }}</p></br>
+                  <p>아이디어 요약</p>
+                </div>
+                <div class="card-action" style="padding-bottom:0px;">
+                  <div class="row" style="margin-bottom:0px;">
+                    <div class="col s12 l6" style="margin-bottom:16px;">
+                      <a class="modal-trigger waves-effect waves-light left-align btn dgist-blue-mid" style="width:100%;"href="#info{{elem.id}}">더 알아보기</a>
+                    </div>
+                    <div class="col s12 l6" style="margin-bottom:16px;">
+                      <a class="modal-trigger waves-effect waves-light btn dgist-blue-dark"  style="width:100%;"href="#vote{{elem.id}}">투표하기</a>
+                    </div>
+                  </div>
+                </div>
+            </div>
+
+            <div id="info{{elem.id}}" class="modal">
+              <div class="modal-content">
+                <video class="responsive-video" controls style="width:100%;">
+                  <source src="../static/video/{{elem.id}}.mp4" type="video/mp4">
+                </video>
+              </div>
+            </div>
+
+            <div id="vote{{elem.id}}" class="modal">
+              <form method="POST" action="{% url 'poll'%}">
+                {% csrf_token %}
+                <div class="modal-content">=
+                  <div class="input-field col s12">
+                    <input name="name" id="leader" type="text" value="">
+                    <label for="name">성함</label>
+                  </div>
+                  <div class="input-field col s12">
+                    <input name="address" id="leader" type="text" value="">
+                    <label for="address">주소</label>
+                  </div>
+                  <div class="input-field col s12">
+                    <input name="phone" id="leader" type="text" value="">
+                    <label for="phone">전화번호</label>
+                  </div>
+                  <div class="input-field col s12">
+                    <input name="idea_id" id="leader" type="text" value="{{elem.id}}">
+                    <label for="idea_id">{{elem.id}}</label>
+                  </div>
+                  <div class="input-field col s12">
+                    <input name="field" id="leader" type="text" value="bm">
+                    <label for="address">field</label>
+                  </div>
+                  <p>
+            개인정보 수집 약관
+            <br/>
+            ------
+            <br/>
+            1. 수집 항목
+            - 필수 항목: 이름, 연락처, 주소
+            <br/>
+            2. 이용 목적
+            - 투표 참여자 관리(중복 투표 예방), 경품 전달
+            <br/>
+            3. 보유기간 및 파기
+            - 투표가 마무리 되는 시점(05월 24일~ 05월 27일)에서 투표자의 개인 정보를 전부 파기하는 것을 원칙으로 하나, 경품 당첨자에 한하여 투표 마감 후 개인 정보 이용 목적이 달성될 때 까지 보유
+            - 정보의 주체가 개인정 삭제를 요청할 경우, 보유기간과 상관없이 검토 후 파기 처리
+            - 개인정보 파기 시 경품 추첨에 불이익이 있을 수 있음
+            <br/>
+            4. 미동의 시 불이익
+            - 해당 개인정보 수집 및 이용에 대한 동의를 거부할 권리가 있으나 이를 거부할 경우 투표 및 경품 추첨에서 참여가 제한됨
+            <br/>
+                    <label>
+                      <input name="accept" type="checkbox" value="True"/>
+                      <span>약관에 동의</span>
+                    </label>
+                  </p>
+                  <div class="input-field col s12">
+                    <button class="dgist-blue-mid waves-effect waves-light btn" type="submit">투표하기</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+            {% endif %}
+            {% endfor %}
+          </div>
+        </div>
+
       </div>
     </div>
 
