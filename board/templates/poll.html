@@ -8,6 +8,7 @@
 
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>2020 대구 경북 아이디어톤</title>
@@ -428,9 +429,26 @@
 
     {% include 'footer.html' %}
     <!-- Compiled and minified JavaScript -->
+    <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script type="text/javascript">
       M.AutoInit();
+      document.addEventListener('DOMContentLoaded', function() {
+        var elems = document.querySelectorAll('.modal');
+        var options = {
+            dismissible: true, // Modal can be dismissed by clicking outside of the modal
+            onCloseEnd: function() {
+              var videos = document.getElementsByClassName("responsive-video");
+              // videos.forEach(element => element.pause());
+              for (i = 0; i < videos.length; i++) {
+                videos[i].pause();
+              }
+              // alert("Video stoped !")
+            }
+          }
+        var instances = M.Modal.init(elems, options);
+      });
+
     </script>
   </body>
 </html>
