@@ -247,9 +247,13 @@ class Fin(models.Model):
     video = models.TextField(
         max_length=500,
     )
+    description = models.TextField(
+        max_length=500,
+        blank = True
+    )
     
     def __str__(self):
-        return self.id
+        return self.title
 
 class BM_Voter(models.Model):
     name = models.CharField(

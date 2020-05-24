@@ -539,6 +539,13 @@ def poll(request):
         idea_id = request.POST['idea_id']
         field = request.POST['field']
 
+        if accept:
+            pass
+        else:
+            return render(request, 'poll.html', {
+                "error" : "약관에 동의해주세요"
+            })
+
         if field == "bm":
             same = 0 # no
             all_voter = BM_Voter.objects.all()
