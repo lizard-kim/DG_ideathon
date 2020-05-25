@@ -215,7 +215,7 @@ class Fin(models.Model):
         auto_now_add=False
     )
     team = models.CharField(
-        max_length=50,
+        max_length=100,
     )
     leader = models.CharField(
         max_length=50,

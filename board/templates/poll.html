@@ -114,7 +114,7 @@
             {% if elem.result == "BM" %}
             <div class="card sticky-action" style="width:100%">
                 <div class="card-content">
-                  <p class="center" style="font-weight:900;">{{ elem.title }} {{ elem.id }}</p>
+                  <p class="center" style="font-weight:900;">{{ elem.title }}</p>
                   <div class="divider" style="margin:5px;"></div>
                   <p class="right grey-text">{{ elem.team }}</p></br>
                   <p>{{ elem.description }}</p>
@@ -136,6 +136,18 @@
                 <video class="responsive-video" controls style="width:100%;">
                   <source src="../static/video/{{elem.id}}.mp4" type="video/mp4">
                 </video>
+                  <div class="input-field col s12">
+                    <p class="center" style="font-weight:900;">아이디어 고안 동기</p>
+                    <p>{{ elem.motivation }}</p>
+                  </div>
+                  <div class="input-field col s12">
+                    <p class="center" style="font-weight:900;">아이디어 실현 과정</p>
+                    <p>{{ elem.process }}</p>
+                  </div> 
+                  <div class="input-field col s12">
+                    <p class="center" style="font-weight:900;">아이디어 기대 효과</p>
+                    <p>{{ elem.expectation }}</p>
+                  </div>                                    
               </div>
             </div>
 
@@ -205,7 +217,7 @@
             {% if elem.result == "UX/UI" %}
             <div class="card sticky-action" style="width:100%">
                 <div class="card-content">
-                  <p class="center" style="font-weight:900;">{{ elem.title }}  {{ elem.id }}</p>
+                  <p class="center" style="font-weight:900;">{{ elem.title }}</p>
                   <div class="divider" style="margin:5px;"></div>
                   <p class="right grey-text">{{ elem.team }}</p></br>
                   <p>{{ elem.description }}</p>
@@ -227,6 +239,18 @@
                 <video class="responsive-video" controls style="width:100%;">
                   <source src="../static/video/{{elem.id}}.mp4" type="video/mp4">
                 </video>
+                  <div class="input-field col s12">
+                    <p class="center" style="font-weight:900;">아이디어 고안 동기</p>
+                    <p>{{ elem.motivation }}</p>
+                  </div>
+                  <div class="input-field col s12">
+                    <p class="center" style="font-weight:900;">아이디어 실현 과정</p>
+                    <p>{{ elem.process }}</p>
+                  </div> 
+                  <div class="input-field col s12">
+                    <p class="center" style="font-weight:900;">아이디어 기대 효과</p>
+                    <p>{{ elem.expectation }}</p>
+                  </div>                 
               </div>
             </div>
 
@@ -296,7 +320,7 @@
             {% if elem.result == "SW" %}
             <div class="card sticky-action" style="width:100%">
                 <div class="card-content">
-                  <p class="center" style="font-weight:900;">{{ elem.title }}  {{ elem.id }}</p>
+                  <p class="center" style="font-weight:900;">{{ elem.title }} </p>
                   <div class="divider" style="margin:5px;"></div>
                   <p class="right grey-text">{{ elem.team }}</p></br>
                   <p>{{ elem.description }}</p>
@@ -318,6 +342,18 @@
                 <video class="responsive-video" controls style="width:100%;">
                   <source src="../static/video/{{elem.id}}.mp4" type="video/mp4">
                 </video>
+                  <div class="input-field col s12">
+                    <p class="center" style="font-weight:900;">아이디어 고안 동기</p>
+                    <p>{{ elem.motivation }}</p>
+                  </div>
+                  <div class="input-field col s12">
+                    <p class="center" style="font-weight:900;">아이디어 실현 과정</p>
+                    <p>{{ elem.process }}</p>
+                  </div> 
+                  <div class="input-field col s12">
+                    <p class="center" style="font-weight:900;">아이디어 기대 효과</p>
+                    <p>{{ elem.expectation }}</p>
+                  </div>                 
               </div>
             </div>
 
