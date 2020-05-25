@@ -208,7 +208,7 @@ class Mid(models.Model):
 
 class Fin(models.Model):
     title = models.CharField(
-        max_length=50,
+        max_length=150,
     )
     date = models.DateField(
         auto_now=True, 
