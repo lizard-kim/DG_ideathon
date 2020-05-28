@@ -5,7 +5,7 @@ from django.contrib.auth.hashers import check_password
 from .models import *
 
 def main(request):
-    return render(request, 'main.html')
+    return render(request, 'notice.html')
 
 def notice(request):
     notice = Notice.objects.all()
