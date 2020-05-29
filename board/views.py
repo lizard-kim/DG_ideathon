@@ -284,7 +284,7 @@ def sign_in(request):
         if user is not None:
             # login success
             auth.login(request, user)
-            return redirect('/main/')
+            return redirect('/notice/')
         else:
             return render(request, 'sign_in.html', {'error': '* 이메일 혹은 비밀번호가 잘못되었습니다.'})
     else:
@@ -293,8 +293,8 @@ def sign_in(request):
 def sign_out(request):
     if request.method == 'POST':
         auth.logout(request)
-        return redirect('/main/')
-    return render(request, 'main.html')
+        return redirect('/notice/')
+    return render(request, 'notice.html')
 
 def edit_pwd(request):
     if request.method == 'POST':
